@@ -18,8 +18,8 @@ export default {
   color: black;
 }
 #Evolution {
-  width: 487px;
-  height: 269px;
+  width: 45%;
+  height: 240px;
   border-radius: 10px;
 }
 </style>

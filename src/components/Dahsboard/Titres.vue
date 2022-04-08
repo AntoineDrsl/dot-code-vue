@@ -57,14 +57,14 @@ export default {
   color: black;
 }
 #Titre {
-  width: 487px;
-  height: 269px;
+  width: 45%;
+  height: 280px;
   border-radius: 10px;
 }
 
 .text {
-  width: 443px;
+  width: 70%;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 </style>

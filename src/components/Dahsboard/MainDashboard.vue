@@ -12,7 +12,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #main {
-  width: 992px;
+  width: 92%;
   height: 283px;
   background: white;
   border-radius: 10px;

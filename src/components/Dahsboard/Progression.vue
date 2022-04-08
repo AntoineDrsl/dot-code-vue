@@ -28,13 +28,13 @@ export default {
   color: black;
 }
 #Progression {
-  width: 228px;
-  height: 269px;
+  width: 21%;
+  height: 240px;
   border-radius: 10px;
 }
 
 .pourcentage {
-  font-size: 56px;
+  font-size: 46px;
 }
 
 .text {

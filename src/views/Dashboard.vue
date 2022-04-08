@@ -45,7 +45,7 @@ export default {
   margin-top: 40px;
 }
 .tournoisInfo {
-  margin-left: 45px;
+  margin-left: -5%;
   margin-top: 40px;
 }
 .progression {
@@ -55,7 +55,7 @@ export default {
   margin-bottom: 20px;
 }
 .progression1 {
-  margin-left: 20px;
+  margin-left: 15px;
   margin-right: 30px;
 }
 .evolution {

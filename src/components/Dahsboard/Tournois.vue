@@ -29,8 +29,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #Tournois {
-  width: 486px;
-  height: 861px;
+  width: 95%;
+  height: 840px;
   border-radius: 10px;
   border: solid #44f5ba;
   color: #ffffff;
@@ -65,12 +65,12 @@ export default {
 
 .img {
   margin-top: 25px;
-  margin-left: 100px;
+  margin-left: 20%;
 }
 
 img {
-  width: 273px;
-  height: 285px;
+  width: 250px;
+  height: 265px;
 }
 
 .sub-date {
@@ -91,8 +91,8 @@ img {
   width: 350px;
   height: 60px;
   color: black;
-  margin-left: 70px;
-
+  margin-left: 20px;
+  margin-top: 4%;
   box-shadow: 0px 0px 50px 5px rgba(48,181,255,0.8);
   border-radius: 50px;
   border: none;
