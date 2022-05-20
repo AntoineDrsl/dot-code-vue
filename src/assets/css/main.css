@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: 'Geminis';
     src: url('../fonts/BD_Geminis/BD_Geminis.otf');
