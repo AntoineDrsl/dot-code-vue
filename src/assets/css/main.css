@@ -30,21 +30,6 @@ body {
     font-family: 'Geminis';
 }
 
-.text-right {
-    text-align: right;
-}
-.text-left {
-    text-align: left;
-}
-.text-center {
-    text-align: center;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.back-icon {
-    width: 2%;
-    margin-top: -0.5%;
+.text-shadow {
+    text-shadow: #30b5ff 1px 0 50px;
 }
