@@ -35,3 +35,12 @@ body {
 .text-center {
     text-align: center;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.back-icon {
+    width: 2%;
+    margin-top: -0.5%;
+}

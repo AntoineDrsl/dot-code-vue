@@ -2,14 +2,19 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import MultiErrors from '../views/games/MultiErrors'
-import RoomConnection from '../views/Room/RoomConnection'
-import RoomPseudo from '../views/Room/RoomPseudo'
-import RoomTeam from '../views/Room/RoomTeam'
+import Connection from '../views/Room/Connection'
+import Pseudo from '../views/Room/Pseudo'
+import Team from '../views/Room/Team'
 import Test from '../views/Test'
 import Game from "../views/Room/Game"
 import RoomWin from "../views/Room/RoomWin"
 import RoomLose from "../views/Room/RoomLose"
+import PrivateParty from '../views/Room/PrivateParty'
+import PrivateCreation from '../views/privateparty/Creation'
+import PrivateMode from '../views/privateparty/Mode'
 import test from "../middlewares/test"
+import Register from '../views/profil/Register.vue'
+import Login from '../views/profil/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -19,41 +24,66 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
     meta: {
       middlewares: [test]
     }
   },
   {
-    path: '/room-connection',
-    name: 'RoomConnection',
-    component: RoomConnection
+    path: '/register',
+    name : 'register',
+    component: Register
   },
   {
-    path: '/game/:pin',
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/room-connection',
+    name: 'room.connection',
+    component: Connection
+  },
+  {
+    path:'/private-party',
+    component: PrivateParty,
+    children : [
+      {
+        path: '',
+        component: PrivateCreation
+      },
+      {
+        path: 'mode',
+        name:'gameMode',
+        component: PrivateMode
+      }
+    ]
+  },
+  {
+    path: '/room/:pin/',
     component: Game,
     children: [
       {
-        path: 'room-pseudo',
-        name: 'RoomPseudo',
-        component: RoomPseudo
+        path: 'pseudo',
+        name: 'room.pseudo',
+        component: Pseudo
       },
       {
-        path: 'room-team',
-        name: 'RoomTeam',
-        component: RoomTeam
+        path: 'team',
+        name: 'room.team',
+        component: Team
       },
       {
         path: '',
-        name: 'Game',
+        name: 'room.game',
         component: MultiErrors
       }
     ]
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

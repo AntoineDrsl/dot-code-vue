@@ -1,92 +1,147 @@
 <template>
-    <GameLayout>
-        <!-- Content -->
-        <template #content>
-            <div class="game">
-                <div class="gamer">
-                    <h3 class="geminis subtitle">Corrige le code</h3>
-                    <p class="explanation">
-                        Le script ci-dessous comporte une erreur cachée. Essaye de la corriger puis appuie sur "Tester" pour voir le résultat et passer à l'exercice suivant. Bonne chance !
-                    </p>
-                    <div class="progression">
-                        <span>Progression: {{ exercice_number }}/10</span>
-                        <div class="progress mt-1">
-                            <div class="progress-bar" role="progressbar" :style="'width: ' + (exercice_number * 10) + '%'"></div>
-                        </div>
-                    </div>
-                    <div id="editor-1" @click="onIdeClick"></div>
-                    <div class="under">
-                        <div class="output">
-                            <span>Console de sortie :</span><br>
-                            <span class="output-result">{{ output }}</span>
-                        </div>
-                        <div class="button" @click="executeCode">TESTER</div>
-                    </div>
-                </div>
-                <div class="opponent">
-                    <h3 class="geminis subtitle">Ton adversaire: Player 2</h3>
-                    <div class="progression">
-                        <span>Progression de ton adversaire: {{ opponent_exercice_number }}/10</span>
-                        <div class="progress mt-1">
-                            <div class="progress-bar" role="progressbar" :style="'width: ' + (opponent_exercice_number * 10) + '%'"></div>
-                        </div>
-                    </div>
-                    <div id="editor-2"></div>
-                    <img src="@/assets/images/games/astronaut.png" alt="Astronaut" class="astronaut">
-                </div>
-            </div>
-        </template>
+	<GameLayout>
+		<!-- Content -->
+		<template #content>
+			<div class="game">
+				<div class="gamer">
+					<h3 class="geminis subtitle">
+						Corrige le code
+					</h3>
+					<p class="explanation">
+						Le script ci-dessous comporte une erreur cachée. Essaye de la corriger puis appuie sur "Tester" pour voir le résultat et passer à l'exercice suivant. Bonne chance !
+					</p>
+					<div class="progression">
+						<span>Progression: {{ exercise_number }}/10</span>
+						<div class="progress mt-1">
+							<div
+								class="progress-bar"
+								role="progressbar"
+								:style="'width: ' + (exercise_number * 10) + '%'"
+							/>
+						</div>
+					</div>
+					<div
+						id="editor-1"
+						@click="onIdeClick"
+					/>
+					<div class="under">
+						<div class="output">
+							<span>Console de sortie :</span><br>
+							<span class="output-result">{{ output }}</span>
+						</div>
+						<div
+							class="button"
+							@click="executeCode"
+						>
+							TESTER
+						</div>
+					</div>
+				</div>
+				<div class="opponent">
+					<h3 class="geminis subtitle">
+						Ton adversaire: Player 2
+					</h3>
+					<div class="progression">
+						<span>Progression de ton adversaire: {{ opponent_exercise_number }}/10</span>
+						<div class="progress mt-1">
+							<div
+								class="progress-bar"
+								role="progressbar"
+								:style="'width: ' + (opponent_exercise_number * 10) + '%'"
+							/>
+						</div>
+					</div>
+					<div id="editor-2" />
+					<img
+						src="@/assets/images/games/astronaut.png"
+						alt="Astronaut"
+						class="astronaut"
+					>
+				</div>
+			</div>
+		</template>
 
-        <!-- Sidebar -->
-        <template #sidebar>
-            <div class="profile">
-                <span class="geminis pseudo" v-if="user">{{user.username}}</span>
-                <img src="@/assets/images/games/user05.png" alt="Photo de profil">
-            </div>
-            <SpaceButton text="Déconnexion" width="small" class="deconnexion" />
-            <div class="links">
-                <div class="link-container">
-                    <a href="#" class="geminis">Space Odity</a>
-                    <div class="img-container">
-                        <img src="@/assets/images/games/space-icon.png" alt="Dashboard">
-                    </div>
-                </div>
-                <div class="link-container active">
-                    <a href="#" class="geminis">Space games</a>
-                    <div class="img-container">
-                        <img src="@/assets/images/games/code-icon.png" alt="Space games">
-                    </div>
-                </div>
-                <div class="link-container">
-                    <a href="#" class="geminis">Paramètres</a>
-                    <div class="img-container">
-                        <img src="@/assets/images/games/params-icon.png" alt="Paramètres">
-                    </div>
-                </div>
-            </div>
-            <div class="badges">
-                <h5 class="geminis">Badges</h5>
-                <div class="badges-list">
-                    <div class="badge"></div>
-                    <div class="badge"></div>
-                    <div class="badge"></div>
-                    <div class="badge"></div>
-                    <div class="badge"></div>
-                    <div class="badge"></div>
-                </div>
-            </div>
-        </template>
-    </GameLayout>
+		<!-- Sidebar -->
+		<template #sidebar>
+			<div class="profile">
+				<span
+					v-if="user"
+					class="geminis pseudo"
+				>{{ user.username }}</span>
+				<img
+					src="@/assets/images/games/user05.png"
+					alt="Photo de profil"
+				>
+			</div>
+			<SpaceButton
+				text="Déconnexion"
+				width="small"
+				class="deconnexion"
+			/>
+			<div class="links">
+				<div class="link-container">
+					<a
+						href="#"
+						class="geminis"
+					>Space Odity</a>
+					<div class="img-container">
+						<img
+							src="@/assets/images/games/space-icon.png"
+							alt="Dashboard"
+						>
+					</div>
+				</div>
+				<div class="link-container active">
+					<a
+						href="#"
+						class="geminis"
+					>Space games</a>
+					<div class="img-container">
+						<img
+							src="@/assets/images/games/code-icon.png"
+							alt="Space games"
+						>
+					</div>
+				</div>
+				<div class="link-container">
+					<a
+						href="#"
+						class="geminis"
+					>Paramètres</a>
+					<div class="img-container">
+						<img
+							src="@/assets/images/games/params-icon.png"
+							alt="Paramètres"
+						>
+					</div>
+				</div>
+			</div>
+			<div class="badges">
+				<h5 class="geminis">
+					Badges
+				</h5>
+				<div class="badges-list">
+					<div class="badge" />
+					<div class="badge" />
+					<div class="badge" />
+					<div class="badge" />
+					<div class="badge" />
+					<div class="badge" />
+				</div>
+			</div>
+		</template>
+	</GameLayout>
 </template>
 
 <script>
     import GameLayout from '@/layouts/GameLayout'
     import SpaceButton from '@/components/SpaceButton'
-    import * as monaco from 'monaco-editor'
     import $ from 'jquery'
-    import exercices from '../../../exercices/errors'
     import router from "../../router";
+    import exercices from '../../../exercices/errors'
+    import loader from "@monaco-editor/loader";
     import * as MonacoCollabExt from "@convergencelabs/monaco-collab-ext";
+    import axios from 'axios'
 
     export default {
         name: 'MultiErrors',
@@ -97,53 +152,183 @@
         data() {
             return {
                 language: 'javascript',
-                editorGamer: null,
-                editorOpponent: null,
+                userEditor: null,
+                opponentEditor: null,
                 output: null,
-                exercice_number: 0,
                 loading: false,
-                opponent_exercice_number: 0,
 
-                /** Variables pour du joueur et des différentes équipes */
-                connectedUsers: [],
-                team_1: [],
-                team_2: [],
                 user: null,
-                myTeam: null,
+                room: null,
+
+                exercise_number: 0,
+                opponent_exercise_number: 0,
 
                 /** Variables pour le partage des IDEs */
-                remoteCursorManagerGamer: null,
-                remoteCursorManagerOpponent: null,
-                remoteContentManagerGamer: null,
-                remoteContentManagerOpponent: null,
+                userRemoteCursorManager: null,
+                opponentRemoteCursorManager: null,
+                userEditorContentManager: null,
+                opponentEditorContentManager: null,
             }
         },
         watch: {
-            exercice_number(newVal) {
-                // Emit exercice number
-                this.$socket.client.emit('nextExercice', {
+            async exercise_number(newVal) {
+
+                await axios.patch(
+                    process.env.VUE_APP_API_URL + `team/${this.user.team.id}/add-point`,
+                    {
+                      points: newVal
+                    }
+                ).then(res => res.data)
+                .catch(error => console.warn('Warning: ', error));
+
+                // Emit exercise number
+                this.$socket.client.emit('nextExercise', {
                     pin: this.$route.params.pin
                 });
 
                 if(newVal <= 9) {
-                    // Next exercice
-                    this.editorGamer.getModel().setValue(exercices[newVal].code);
+                    // Next exercise
+                    this.userEditor.getModel().setValue(exercices[newVal].code);
                     this.output = null;
                     this.loading = false;
                 } else {
                     // Success page
-                    router.push({ path: `/room-win` });
+                    await router.push({path: `/room-win`});
                 }
             },
-            opponent_exercice_number(newVal) {
+            async opponent_exercise_number(newVal) {
                 if(newVal <= 9) {
-                    // Next exercice for opponent
-                    this.editorOpponent.getModel().setValue(exercices[newVal].code);
+                    // Next exercise for opponent
+                    this.opponentEditor.getModel().setValue(exercices[newVal].code);
                 } else {
                     // Loose page
-                    router.push({ path: `/room-lose` });
+                    await router.push({ path: `/room-lose` });
                 }
             }
+        },
+        async mounted() {
+            document.title = 'Corrige le code | DotCode'
+
+            // Get user
+            const userId = parseInt(localStorage.getItem('user'));
+            this.user = await axios.get(process.env.VUE_APP_API_URL + 'user/' + userId)
+                .then(res => res.data)
+                .catch(() => this.$router.push({ name: 'room.connection' }));
+
+            // Get room
+            this.room = await axios.get(`${process.env.VUE_APP_API_URL}room/pin/${this.$route.params.pin}`)
+                .then(res => res.data)
+                .catch(() => this.$router.push({ name: 'room.connection' }));
+
+            const userTeam = this.room.teams.find(team => team.id === this.user.team.id);
+            const opponentTeam = this.room.teams.find(team => team.id !== this.user.team.id);
+
+            // Initialization of the team number, in case of reloading
+            this.exercise_number = userTeam.points;
+            this.opponent_exercise_number = opponentTeam.points;
+
+            // Init Monaco
+            const monaco = await loader.init()
+
+            // Create editors
+            this.userEditor = monaco.editor.create(document.getElementById("editor-1"), {
+                value: exercices[userTeam.points].code,
+                language: this.language,
+                theme: 'vs-dark',
+                minimap: {enabled: false}
+            });
+            this.opponentEditor = monaco.editor.create(document.getElementById("editor-2"), {
+                value: exercices[opponentTeam.points].code,
+                language: this.language,
+                theme: 'vs-dark',
+                lineNumbers: false,
+                minimap: {enabled: false}
+            });
+
+            // Cursor management
+            this.userRemoteCursorManager = new MonacoCollabExt.RemoteCursorManager({
+                editor: this.userEditor,
+                tooltips: true,
+                tooltipDuration: 4
+            });
+            this.opponentRemoteCursorManager = new MonacoCollabExt.RemoteCursorManager({
+                editor: this.opponentEditor,
+                tooltips: true,
+                tooltipDuration: 4
+            });
+
+            // Create cursors
+            userTeam.users.forEach(user => {
+                // Don't create for this user
+                if (user.id === this.user.id) {
+                    return;
+                }
+
+                // Add cursor
+                const newCursor = this.userRemoteCursorManager.addCursor(
+                    user.id.toString(),
+                    this.getRandomColor(),
+                    user.pseudo
+                );
+                newCursor.setPosition({column: 1, lineNumber: 1});
+
+                // Add to user
+                this.room.users.find(u => u.id === user.id ).cursor = newCursor;
+            });
+
+            opponentTeam.users.forEach(user => {
+                // Add cursor
+                const newCursor = this.opponentRemoteCursorManager.addCursor(
+                    user.id.toString(),
+                    this.getRandomColor(),
+                    user.pseudo
+                );
+                newCursor.setPosition({column: 1, lineNumber: 1});
+
+                // Add to user
+                this.room.users.find(u => u.id === user.id).cursor = newCursor;
+            });
+
+            // Editor content managers
+            const vm = this;
+            this.userEditorContentManager = new MonacoCollabExt.EditorContentManager({
+                editor: this.userEditor,
+                onInsert(index, text) {
+                    vm.$socket.client.emit('newTextInsert', {
+                        index: index, 
+                        text: text, 
+                        team_id: vm.user.team.id, 
+                        pin: vm.$route.params.pin
+                    });
+                },
+                onDelete(index, length) {
+                    vm.$socket.client.emit('newTextDelete', {
+                        index: index, 
+                        length: length, 
+                        team_id: vm.user.team.id, 
+                        pin: vm.$route.params.pin
+                    });
+                }
+            });
+            this.opponentEditorContentManager = new MonacoCollabExt.EditorContentManager({
+                editor: this.opponentEditor,
+            });
+
+            // IDE on key up
+            this.userEditor.onKeyUp((e) => {
+                if (e.code === 'Tab') {
+                    this.$socket.client.emit('onTab', {
+                        text: this.userEditor.getValue(),
+                        team_id: this.user.team.id, 
+                        pin: this.$route.params.pin
+                    });
+                }
+                this.$socket.client.emit('userCursorChange', {
+                    pin: this.$route.params.pin, 
+                    user: this.user, 
+                    position: this.userEditor.getPosition()
+                });
+            });
         },
         methods: {
             executeCode() {
@@ -153,9 +338,9 @@
                         method: 'POST',
                         data: {
                             language: this.language,
-                            code: monaco.editor.getModels()[0].getValue(),
-                            expectedResult: exercices[this.exercice_number].expectedResult,
-                            expectedCode: exercices[this.exercice_number].expectedCode
+                            code: this.userEditor.getModel().getValue(),
+                            expectedResult: exercices[this.exercise_number].expectedResult,
+                            expectedCode: exercices[this.exercise_number].expectedCode
                         },
                         success: (res) => {
                             if(res.error) {
@@ -170,7 +355,7 @@
 
                                 // Next exercice
                                 setTimeout(() => {
-                                    this.exercice_number++;
+                                    this.exercise_number++;
                                 }, 1500);
                             }
                         }
@@ -178,99 +363,11 @@
                 }
             },
 
-            /**
-             * On crée les différents curseurs pour les IDEs
-             */
-            createCursorsGamer() {
-                const teamGamer = this.myTeam === 'team_1' ? this.team_1 : this.team_2;
-                const teamOpponent = this.myTeam !== 'team_1' ? this.team_1 : this.team_2;
-
-                teamGamer.forEach((user) => {
-                    // Création du curseur
-                    const newCursor = this.remoteCursorManagerGamer.addCursor(
-                        user.socketId,
-                        this.getRandomColor(),
-                        user.username
-                    );
-
-                    // Early return pour ne pas créer de curseur pour le propre utilisateur
-                    if (user.socketId === this.user.socketId) {
-                        // this.user.cursor = newCursor;
-                        return;
-                    }
-
-                    // Ajout du curseur pour le user 
-                    user.cursor = newCursor;
-                    newCursor.setPosition({column: 1, lineNumber: 1});
-                });
-                // Création des curseur sur l'autre IDE
-                this.createCursorsOpponent(teamOpponent);
-            },
-
-            createCursorsOpponent(team) {
-                team.forEach((user) => {
-                    // Création du curseur
-                    const newCursor = this.remoteCursorManagerOpponent.addCursor(
-                        user.socketId,
-                        this.getRandomColor(),
-                        user.username
-                    );
-
-                    // Early return pour ne pas créer de curseur pour le propre utilisateur
-                    if (user.socketId === this.user.socketId) {
-                        // this.user.cursor = newCursor;
-                        return;
-                    }
-
-                    // ajout du curseur pour le user
-                    user.cursor = newCursor;
-                    newCursor.setPosition({column:1, lineNumber: 1});
-                });
-            },
-
             onIdeClick() {
-              this.$socket.client.emit('gamerCursorChange',
-                    {pin: this.$route.params.pin, user: this.user, position: this.editorGamer.getPosition()}
-              );
-            },
-
-            onIdeAction() {
-              this.editorGamer.onKeyUp((e) => {
-                if (e.code === 'Tab') {
-                    this.$socket.client.emit('onTab', {
-                        value: this.editorGamer.getValue(), 
-                        team: this.myTeam, 
-                        pin: this.$route.params.pin
-                    });
-                }
-                this.$socket.client.emit('gamerCursorChange', {
-                    pin: this.$route.params.pin, 
-                    user: this.user, 
-                    position: this.editorGamer.getPosition()
-                });
-              })
-            },
-
-            sharedContentIde(thisVue) {
-                /** Création de l'objet permettant de rentranscrire écriture pour l'IDE principal */
-                this.remoteContentManagerGamer = new MonacoCollabExt.EditorContentManager({
-                    editor: this.editorGamer,
-                    onInsert(index, text) {
-                        thisVue.$socket.client.emit('newTextInsert', {index: index, value: text, team: thisVue.myTeam, pin: thisVue.$route.params.pin});
-                    },
-                    onDelete(index, length) {
-                        thisVue.$socket.client.emit('newTextDelete', {
-                            index: index, 
-                            length: length, 
-                            team: thisVue.myTeam, 
-                            pin: thisVue.$route.params.pin
-                        });
-                    }
-                });
-
-                /** Création de l'objet permettant de rentranscrire écriture pour l'IDE secondaire */
-                this.remoteContentManagerOpponent = new MonacoCollabExt.EditorContentManager({
-                    editor: this.editorOpponent,
+                this.$socket.client.emit('userCursorChange', {
+                    pin: this.$route.params.pin,
+                    user: this.user,
+                    position: this.userEditor.getPosition()
                 });
             },
 
@@ -278,97 +375,43 @@
                 return '#' + Math.floor(Math.random()*16777215).toString(16);
             }
         },
-        mounted() {
-
-            document.title = 'Corrige le code | DotCode'
-
-            this.editorGamer = monaco.editor.create(document.getElementById("editor-1"), {
-                value: exercices[this.exercice_number].code,
-                language: this.language,
-                theme: 'vs-dark',
-                minimap: {enabled: false}
-            });
-            this.editorOpponent = monaco.editor.create(document.getElementById("editor-2"), {
-                value: exercices[this.exercice_number].code,
-                language: this.language,
-                theme: 'vs-dark',
-                lineNumbers: false,
-                minimap: {enabled: false}
-            });
-
-            /** Création de l'objet permettant de créer plusieurs curseurs pour l'IDE principal */
-            this.remoteCursorManagerGamer = new MonacoCollabExt.RemoteCursorManager({
-                editor: this.editorGamer,
-                tooltips: true,
-                tooltipDuration: 4
-            });
-
-            /** Création de l'objet permettant de créer plusieurs curseurs pour l'IDE secondaire */
-            this.remoteCursorManagerOpponent = new MonacoCollabExt.RemoteCursorManager({
-                editor: this.editorOpponent,
-                tooltips: true,
-                tooltipDuration: 4
-            });
-
-            this.$socket.client.emit('getConnectedUsers', {pin: this.$route.params.pin}, res => {
-                if(res.error) {
-                    router.push({ path: `/room-connection`});
-                    return;
-                }
-                this.connectedUsers = res.room.connectedUsers;
-                this.team_1 = res.room.team_1;
-                this.team_2 = res.room.team_2;
-                this.user = res.user;
-                this.myTeam = res.user.team;
-                this.createCursorsGamer();
-            });
-
-            /** Création des objets pour l'écriture dans l'ide */
-            this.sharedContentIde(this);
-            this.onIdeAction();
-        },
 
         sockets: {
-            gamerCursorChange(cursorInformations) {
-                const team = cursorInformations.user.team === 'team_1' ? this.team_1 : this.team_2;
-                const user = team.find((user) => user.socketId === cursorInformations.user.socketId)
-                user.cursor.setPosition(cursorInformations.position);
-                user.cursor.show();
+            userCursorChange(params) {
+                this.room.users.find(user => user.id === params.user.id).cursor.setPosition(params.position);
+                this.room.users.find(user => user.id === params.user.id).cursor.show();
             },
 
-            newTextInsert(value) {
-                const mainIde = this.myTeam === value.team;
-                if (mainIde) {
-                    this.remoteContentManagerGamer.insert(value.index, value.value);
-                    this.remoteContentManagerGamer.dispose();
-                    return;
+            newTextInsert(params) {
+                if (this.user.team.id === params.team_id) {
+                    this.userEditorContentManager.insert(params.index, params.text);
+                    this.userEditorContentManager.dispose();
+                } else {
+                    this.opponentEditorContentManager.insert(params.index, params.text);
+                    this.opponentEditorContentManager.dispose();
                 }
-                this.remoteContentManagerOpponent.insert(value.index, value.value);
-                this.remoteContentManagerOpponent.dispose();
             },
 
-            newTextDelete(value) {
-                const mainIde = this.myTeam === value.team;
-                if (mainIde) {
-                    this.remoteContentManagerOpponent.delete(value.index, value.length);
-                    this.remoteContentManagerOpponent.dispose();
-                    return;
+            newTextDelete(params) {
+                if (this.user.team.id === params.team_id) {
+                    this.userEditorContentManager.delete(params.index, params.length);
+                    this.userEditorContentManager.dispose();
+                } else {
+                    this.opponentEditorContentManager.delete(params.index, params.length);
+                    this.opponentEditorContentManager.dispose();
                 }
-                this.remoteContentManagerOpponent.delete(value.index, value.length);
-                this.remoteContentManagerOpponent.dispose();
             },
 
-            onTab(newText) {
-                const mainIde = this.myTeam === newText.team;
-                 if (mainIde) {
-                    this.editorGamer.setValue(newText.value);
-                    return;
+            onTab(params) {
+                if (this.user.team.id === params.team_id) {
+                    this.userEditor.setValue(params.text);
+                } else {
+                    this.opponentEditor.setValue(params.text);
                 }
-                this.editorOpponent.setValue(newText.value);
             },
 
             opponentSuccess() {
-                this.opponent_exercice_number++;
+                this.opponent_exercise_number++;
             }
         }
     }
