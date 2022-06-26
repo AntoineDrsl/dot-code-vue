@@ -271,7 +271,7 @@
                     user.pseudo
                 );
                 newCursor.setPosition({column: 1, lineNumber: 1});
-
+                newCursor.show();
                 // Add to user
                 this.room.users.find(u => u.id === user.id ).cursor = newCursor;
             });
@@ -284,7 +284,7 @@
                     user.pseudo
                 );
                 newCursor.setPosition({column: 1, lineNumber: 1});
-
+                newCursor.show();
                 // Add to user
                 this.room.users.find(u => u.id === user.id).cursor = newCursor;
             });
