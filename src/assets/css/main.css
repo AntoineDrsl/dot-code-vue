@@ -33,3 +33,7 @@ body {
 .text-shadow {
     text-shadow: #30b5ff 1px 0 50px;
 }
+
+.border-green {
+    border : solid #44f5ba
+}

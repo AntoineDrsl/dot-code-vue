@@ -1,6 +1,6 @@
 <template>
-	<div id="ConnexionButton">
-		<button class="link-button"> 
+	<div id="ConnexionButton" class="p-4 rounded-3xl bg-white mt-6">
+		<button class="mt-2 w-full flex text-center bg-space-dark-blue rounded-full font-bold cursor-pointer text-white px-4 py-2"> 
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="30"
@@ -15,9 +15,9 @@
 					fill="currentColor"
 				/>
 			</svg>
-			<span class="button-text">Connexion avec google</span>
+			<span class="mt-1 ml-4">Connexion avec google</span>
 		</button>
-		<button class="link-button">
+		<button class="mt-2 w-full flex text-center bg-space-dark-blue rounded-full font-bold cursor-pointer text-white px-4 py-2">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="30"
@@ -32,7 +32,7 @@
 					fill="currentColor"
 				/>
 			</svg>
-			<span class="button-text">Connexion avec github</span>
+			<span class="mt-1 ml-4">Connexion avec github</span>
 		</button>
 	</div>
 </template>
@@ -42,31 +42,5 @@ export default {
     name: "ConnexionButton",
 }
 </script>
-
 <style scoped>
-
-#ConnexionButton {
-    padding: 5%;
-    border-radius: 30px;
-    background-color: #fff;
-    margin-top: 5%;
-}
-
-.link-button {
-    margin-top : 2%;
-    width: 100%;
-    display: flex;
-    text-align: center;
-    background-color: #090B31;
-    border-radius: 30px;
-    font-weight: 700;
-    padding: 12px 5%;
-    transition: 0.25s;
-    cursor: pointer;
-    color: #fff;
-}
-
-.button-text {
-    margin-top: 1%;
-}
 </style>

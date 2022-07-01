@@ -1,25 +1,26 @@
 <template>
   <HomeLayout>
     <template #content>
-      <div class="relative h-96 mb-10">
-        <div class="w-1/2 h-1/2 mt-24 float-right text-center">
-          <h1 class="lg:text-6xl xl:text-8xl geminis text-shadow">Welcome<br/>on board !</h1>
+      <div class="relative h-screen mb-10">
+        <div class="w-2/3 lg:w-1/2 mt-24 float-right text-center ">
+          <h1 class="lg:text-8xl geminis text-loose text-shadow mb-14">Welcome<br/>on board !</h1>
           <div class="flex space-x-2">
-            <div class="w-1/2">
+            <div class="w-full lg:w-1/2">
               <SpaceButton text="Jouer en ligne !" link="room.connection" />
             </div>
-            <div class="w-1/2">
+            <div class="w-full lg:w-1/2">
               <SpaceButton text="Créer une partie privée" @click.native="createRoom" />
             </div>
           </div>
         </div>
-        <div class="absolute top-8 h-96 w-5/6 bg-no-repeat bg-contain bg-astronaute"></div>
+        <div class=" top-14 h-5/6  w-5/6 bg-no-repeat bg-contain bg-astronaute">
+        </div>
       </div>
-      <div class="space-y-24">
+      <div class="space-y-24 mt-4">
         <div class="relative h-80 flex items-center">
-          <div class="w-3/5">
+          <div class="lg:w-3/5">
             <h2 class="geminis">Third Stone from the Sun</h2>
-            <p>
+            <p class="w-3/5 lg:w-full">
               <strong>SPACECODE, c'est quoi ?</strong> <br/>
               Relevez le défi sur les différents modes de jeux que vous propose SPACECODE. Chaque défi est conçu par la
               communauté pour vous aider à renforcer différentes compétences de développement. Maîtrisez le langage de
@@ -33,7 +34,7 @@
             <img
               src="@/assets/images/planet-red.png"
               alt="planet-red"
-              class="planet-red-img top-4 xl:top-0 ml-28 absolute w-1/4"
+              class="planet-red-img top-4 xl:top-0 -ml-14 lg:ml-28 absolute w-1/4 2xl:w-1/5 2xl:ml-96 2xl:-mt-8"
             />
             <img
               src="@/assets/images/diamond.png"
@@ -43,15 +44,15 @@
             <img
               src="@/assets/images/diamond-2.png"
               alt="diamonds"
-              class="diamond-img-2 right-6 xl:right-11 absolute w-1/12 -top-10 xl:top-0"
+              class="diamond-img-2 right-6 xl:right-11 absolute w-1/12 -top-10"
             />
           </div>
         </div>
   
         <div class="relative h-80 flex items-center justify-end">
-          <div class="w-3/5 text-right">
+          <div class="lg:w-3/5 text-right">
             <h2 class="geminis">Interstellar Supernova</h2>
-            <p>
+            <p class="w-3/5 lg:w-full ml-56 lg:ml-0">
               <strong> Comment ça fonctionne ? </strong> <br/>
         
               Discutez du défi, des meilleures pratiques et des techniques innovantes avec la communauté. Laissez-vous
@@ -70,7 +71,7 @@
             <img
               src="@/assets/images/planet-earth.png"
               alt="planet-earth"
-              class="planet-earth-img top-8 xl:top-0 left-20 xl:left-24 absolute w-1/4"
+              class="planet-earth-img top-8 xl:top-0 left-20 xl:left-24 absolute w-1/4 2xl:w-1/5 2xl:-top-24"
             />
             <img
               src="@/assets/images/diamond-5.png"
@@ -80,7 +81,7 @@
           </div>
         </div>
   
-        <div class="relative h-80 flex items-center">
+        <div class="relative h-80 flex items-center py-56 lg:py-24">
           <div class="w-3/5">
             <h2 class="geminis">FIGHT LIKE A Rocket Man !</h2>
             <p>
@@ -114,7 +115,7 @@
             <img
               src="@/assets/images/planet-egg.png"
               alt="planet-egg"
-              class="planet-egg-img top-0 ml-16 xl:ml-20 absolute w-1/4"
+              class="planet-egg-img top-0 ml-16 xl:ml-20 absolute w-1/4 2xl:w-1/5"
             />
           </div>
         </div>
@@ -128,7 +129,7 @@
           <h4 class="geminis text-space-dark-blue lg:text-xl xl:text-3xl">L'espace a besoin de toi !</h4>
           <SpaceButton text="Se créer un compte" class="w-1/3"/>
         </div>
-        <img src="@/assets/images/splash.png" alt="Splash" class="absolute -top-6 xl:-top-10 -left-6 xl:-left-16 w-1/4"/>
+        <img src="@/assets/images/splash.png" alt="Splash" class="absolute -top-6 xl:-top-10 -left-6 xl:-left-16 w-1/4 2xl:w-1/6"/>
         <img src="@/assets/images/diamond.png" alt="Diamond" class="diamond absolute w-1/5 right-0 top-28"/>
       </div>
 

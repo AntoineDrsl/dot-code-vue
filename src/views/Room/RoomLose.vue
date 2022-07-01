@@ -1,21 +1,16 @@
 <template>
-	<div class="lose">
-		<div class="topbar">
-			<img
-				class="top-image"
-				src="@/assets/images/SpaceCodeGreenLogo.png"
-			>
-		</div>
-		<div class="lose-main">
-			<div class="lose-card-container">
-				<Lose />
-			</div>
-		</div>
-		<img
-			src="@/assets/images/Moon.png"
-			class="font-image"
-		>
-	</div>
+  <div class="h-screen">
+    <div class="w-full flex justify-center px-4 h-16 mt-4">
+      <img src="@/assets/images/SpaceCodeGreenLogo.png" />
+    </div>
+    <img src="@/assets/images/Moon.png" class="opacity-70 w-1/3 top-0 relative z-10 ml-32" />
+    <div class="w-full flex justify-center items-center -mt-96">
+      <div class="flex relative z-30 justify-center">
+        <Lose />
+      </div>
+    </div>
+   
+  </div>
 </template>
 
 <script>

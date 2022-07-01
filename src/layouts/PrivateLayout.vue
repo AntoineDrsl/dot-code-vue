@@ -1,19 +1,15 @@
 <template>
-	<div>
-		<div class="topbar">
-			<img
-				class="top-image"
-				src="@/assets/images/SpaceCodeGreenLogo.png"
-			>
-		</div>
-		<div class="party-main">
-			<slot name="content" />
-		</div>
-		<img
-			src="@/assets/images/Moon.png"
-			class="font-image"
-		>
-	</div>
+  <div>
+        <div class="w-full flex justify-center px-4 h-16 mt-4">
+            <img src="@/assets/images/SpaceCodeGreenLogo.png" />
+        </div>
+        <img src="@/assets/images/Moon.png" class="-mt- font-image w-1/4 ml-10 opacity-70 relative z-10" />
+        <div class="-mt-80">
+            <slot name="content"></slot>
+        </div>
+        
+        
+  </div>
 </template>
 
 <script>
@@ -23,20 +19,4 @@ export default {
 </script>
 
 <style scoped>
-.topbar {
-  height: 12vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.font-image {
-  opacity: 70%;
-  width: 25%;
-  left: 5%;
-  margin-top: -40%;
-  position: relative;
-  z-index: 1;
-}
 </style>

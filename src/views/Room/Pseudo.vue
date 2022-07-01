@@ -16,8 +16,8 @@
         <SpaceButton class="w-1/2 mb-4" text="Continuer" @click.native="sendPseudo" />
       </div>
     </div>
-    <div class="bottom-img">
-      <img src="@/assets/images/diamond.png" alt="" />
+    <div>
+      <img class="w-1/12 -mt-16 float-right mr-80 opacity-90" src="@/assets/images/diamond.png" alt="" />
     </div>
     
   </div>
@@ -67,11 +67,4 @@
 </script>
 
 <style scoped>
-  .bottom-img img {
-    width: 12%;
-    height: 10%;
-    margin-top: -8%;
-    margin-left: 67.5%;
-    opacity: 90%;
-  }
 </style>
