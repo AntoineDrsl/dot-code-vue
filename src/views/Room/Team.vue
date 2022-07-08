@@ -16,14 +16,14 @@
             <h3 class="text-space-green geminis">{{ room.teams[0] ? room.teams[0].name : '...' }}</h3>
             <div class="bg-white text-black w-3/4 rounded-xl flex flex-col  items-center">
               <div>
-                <div class="pt-14 h-32 font-bold text-xl text-center" v-if="room.teams[0] && room.teams[0].users.length > 0">
+                <div class="pt-14 h-32 lg:h-64 font-bold text-xl text-center" v-if="room.teams[0] && room.teams[0].users.length > 0">
                   <ul class="px-0">
                     <li v-for="user in room.teams[0].users" :key="user.slug">
                       {{ user.pseudo }}
                     </li>
                   </ul>
                 </div>
-                <div class="pt-14 h-32 font-bold text-xl text-center" v-else>
+                <div class="pt-14 h-32 lg:h-64  font-bold text-xl text-center" v-else>
                   <p>L'équipe est actuellement <br />vide</p>
                 </div>
               </div>
@@ -47,14 +47,14 @@
             <h3 class="text-space-green geminis text-end mr-40">{{ room.teams[1] ? room.teams[1].name : '...' }}</h3>
             <div class="bg-white text-black w-3/4 rounded-xl flex flex-col  items-center">
               <div>
-                <div class="pt-14 h-32 font-bold text-xl text-center" v-if="room.teams[1] && room.teams[1].users.length > 0">
+                <div class="pt-14 h-32 lg:h-64 font-bold text-xl text-center" v-if="room.teams[1] && room.teams[1].users.length > 0">
                   <ul class="px-0">
                     <li v-for="user in room.teams[1].users" :key="user.slug">
                       {{ user.pseudo }}
                     </li>
                   </ul>
                 </div>
-                <div class="pt-14 h-32 font-bold text-xl text-center" v-else>
+                <div class="pt-14 h-32 lg:h-64 font-bold text-xl text-center" v-else>
                   <div>
                     <p>L'équipe est actuellement <br />vide</p>
                   </div>
@@ -75,13 +75,16 @@
           </span>
         </div>
 
-        <div class="w-full flex flex-col items-center lg:mb-10">
+        <div class="w-full flex flex-col items-center lg:mb-10 mt-10">
           <button class="text-center bg-white hover:bg-space-dark-blue text-space-dark-blue hover:text-white border-none cursor-pointer font-bold px-2 py-1.5 text-2xl rounded-full w-1/3 shadow-space transition duration-100" @click="launchGame()">
             Démarrer la partie !
           </button>
 
-          <div v-if="err" class="text-red-500 bg-white text-center w-2/5 rounded-lg mt-2">
-            {{ err }}
+          <div v-if="err" class="text-red-500 bg-white w-1/5 py-1 rounded-full mt-2 space-x-4 flex items-center justify-center bg-opacity-75">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" />
+            </svg>
+            <span>{{ err }}</span>
           </div>
         </div>
       </div>
