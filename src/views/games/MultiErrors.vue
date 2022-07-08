@@ -22,7 +22,7 @@
 					</div>
 					<div
 						id="editor-1"
-                        class="lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
+						class="lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
 						@click="onIdeClick"
 					/>
 					<div class="w-full flex flex-col mt-2">
@@ -53,9 +53,9 @@
 						</div>
 					</div>
 					<div 
-                    id="editor-2"
-                    class="h-2/6 overflow-y-hidden mt-4 w-full"
-                    />
+						id="editor-2"
+						class="h-2/6 overflow-y-hidden mt-4 w-full"
+					/>
 					<img
 						src="@/assets/images/games/astronaut.png"
 						alt="Astronaut"
@@ -73,16 +73,16 @@
 					class="geminis text-space-green text-2xl"
 				>{{ user.username }}</span>
 				<div class="w-full flex justify-center">
-                    <img
-					src="@/assets/images/games/user05.png"
-					alt="Photo de profil"
-                    class="w-20 h-20 rounded-full"
-				>
-                </div>
+					<img
+						src="@/assets/images/games/user05.png"
+						alt="Photo de profil"
+						class="w-20 h-20 rounded-full"
+					>
+				</div>
 			</div>
 			<SpaceButton
 				text="Quitter la partie"
-                link="home"
+				link="home"
 				width="small"
 				class="w-4/5 mt-10 mb-14"
 			/>
@@ -94,7 +94,7 @@
 					>Space Odity</a>
 					<div class="bg-space-dark-blue rounded-full w-8 h-8 xl:w-10 xl:h-10 2xl:w-14 2xl:h-14 flex justify-center items-center">
 						<img
-                            class="w-1/2"
+							class="w-1/2"
 							src="@/assets/images/games/space-icon.png"
 							alt="Dashboard"
 						>
@@ -102,12 +102,12 @@
 				</div>
 				<div class="flex justify-between items-center mb-4">
 					<a
-                        class="geminis text-space-green no-underline lg:text-lg xl:text-xl 2xl:text-4xl mt-1"
+						class="geminis text-space-green no-underline lg:text-lg xl:text-xl 2xl:text-4xl mt-1"
 						href="#"
 					>Space games</a>
 					<div class="bg-space-green rounded-full w-8 h-8 xl:w-10 xl:h-10 2xl:w-14 2xl:h-14 flex justify-center items-center">
 						<img
-                        class="w-1/2"
+							class="w-1/2"
 							src="@/assets/images/games/code-icon.png"
 							alt="Space games"
 						>
@@ -120,7 +120,7 @@
 					>Paramètres</a>
 					<div class="bg-space-dark-blue rounded-full w-8 h-8 xl:w-10 xl:h-10 2xl:w-14 2xl:h-14 flex justify-center items-center">
 						<img
-                            class="w-1/2"
+							class="w-1/2"
 							src="@/assets/images/games/params-icon.png"
 							alt="Paramètres"
 						>
