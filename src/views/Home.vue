@@ -1,7 +1,7 @@
 <template>
   <HomeLayout>
     <template #content>
-      <div class="relative h-96 lg:h-screen mb-10 top-28 xl:top-14 2xl:top-96">
+      <div class="relative h-screen mb-10 top-14">
         <div class="w-2/3 lg:w-1/2 2xl:w-3/5 mt-24 float-right text-center ">
           <h1 class="lg:text-8xl 2xl:text-9xl geminis text-loose text-shadow mb-14">Welcome<br/>on board !</h1>
           <div class="flex space-x-2">
@@ -127,7 +127,7 @@
         <div class="flex flex-column w-full items-center space-y-4">
           <h3 class="geminis text-space-dark-blue mt-10 lg:text-3xl xl:text-5xl">Prêt à rejoindre l'aventure ?</h3>
           <h4 class="geminis text-space-dark-blue lg:text-xl xl:text-3xl">L'espace a besoin de toi !</h4>
-          <SpaceButton text="Se créer un compte" class="w-1/3"/>
+          <SpaceButton link="register" text="Se créer un compte" class="w-1/3"/>
         </div>
         <img src="@/assets/images/splash.png" alt="Splash" class="absolute -top-6 xl:-top-10 -left-6 xl:-left-16 w-1/4 2xl:w-1/6"/>
         <img src="@/assets/images/diamond.png" alt="Diamond" class="diamond absolute w-1/5 right-0 top-28"/>
