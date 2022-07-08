@@ -22,7 +22,7 @@
 					</div>
 					<div
 						id="editor-1"
-                        class="lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
+              class="lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
 						@click="onIdeClick"
 					/>
 					<div class="w-full flex flex-col mt-2">
@@ -52,7 +52,7 @@
 							/>
 						</div>
 					</div>
-					<div 
+					<div
                     id="editor-2"
                     class="h-2/6 overflow-y-hidden mt-4 w-full"
                     />
@@ -303,17 +303,17 @@
                 editor: this.userEditor,
                 onInsert(index, text) {
                     vm.$socket.client.emit('newTextInsert', {
-                        index: index, 
-                        text: text, 
-                        team_id: vm.user.team.id, 
+                        index: index,
+                        text: text,
+                        team_id: vm.user.team.id,
                         pin: vm.$route.params.pin
                     });
                 },
                 onDelete(index, length) {
                     vm.$socket.client.emit('newTextDelete', {
-                        index: index, 
-                        length: length, 
-                        team_id: vm.user.team.id, 
+                        index: index,
+                        length: length,
+                        team_id: vm.user.team.id,
                         pin: vm.$route.params.pin
                     });
                 }
@@ -327,13 +327,13 @@
                 if (e.code === 'Tab') {
                     this.$socket.client.emit('onTab', {
                         text: this.userEditor.getValue(),
-                        team_id: this.user.team.id, 
+                        team_id: this.user.team.id,
                         pin: this.$route.params.pin
                     });
                 }
                 this.$socket.client.emit('userCursorChange', {
-                    pin: this.$route.params.pin, 
-                    user: this.user, 
+                    pin: this.$route.params.pin,
+                    user: this.user,
                     position: this.userEditor.getPosition()
                 });
             });
