@@ -14,16 +14,20 @@
     src: url('../fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf');
 }
 
+html {
+    background-color: #090B31;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Avenir, Helvetica, Arial, sans-serif;
 
-    background-image: url('~@/assets/images/stars-background.png');
-    background-size: contain;
-    background-repeat: repeat;
-    z-index: -1;
-    background-color: #090B31;
+    /*background-image: url('~@/assets/images/stars-background.png');*/
+    /*background-size: contain;*/
+    /*background-repeat: repeat;*/
+    /*z-index: -1;*/
+    background-color: transparent !important;
 }
 
 .geminis {
