@@ -35,7 +35,7 @@
 
 <style scoped>
   .btn-moon {
-    height: 10%;
+    width: 30%;
     margin-left: 40px;
     cursor: pointer;
   }

@@ -59,7 +59,7 @@
 					<img
 						src="@/assets/images/games/astronaut.png"
 						alt="Astronaut"
-						class="w-full mt-14"
+						class="w-full mt-10"
 					>
 				</div>
 			</div>
