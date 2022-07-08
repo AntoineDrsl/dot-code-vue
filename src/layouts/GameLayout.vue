@@ -1,17 +1,17 @@
 <template>
 	<div class="body">
-		<div class="game-container">
-			<div class="content-part">
+		<div class="h-screen flex">
+			<div class="h-full lg:w-9/12 xl:w-4/5 mx-8">
 				<Topbar />
 				<slot name="content" />
 			</div>
-			<div class="sidebar">
+			<div class="w-1/5 h-full bg-white flex flex-col items-center text-space-dark-blue">
 				<img
 					src="@/assets/images/games/halfmoon.png"
 					alt="Lune"
-					class="moon"
+					class="mt-14 mb-8 w-12"
 				>
-				<h1 class="geminis text-center sidebar-title">
+				<h1 class="geminis text-center text-4xl mb-8">
 					Space<br>Code
 				</h1>
 				<slot name="sidebar" />
@@ -32,33 +32,4 @@
 </script>
 
 <style scoped>
-    .game-container {
-        display: flex;
-        height: 100vh;
-    }
-    .content-part {
-        width: 80%;
-        height: 100%;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-    .sidebar {
-        width: 20%;
-        height: 100%;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: #090B31;
-    }
-    .moon {
-        margin-top: 25px;
-        margin-bottom: 15px;
-        width: 40px;
-    }
-    .sidebar-title {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-        font-size: 2rem;
-    }
 </style>

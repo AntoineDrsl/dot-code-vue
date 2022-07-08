@@ -18,7 +18,8 @@ module.exports = {
       'space-green' : '#44f5ba',
       'space-darker-green' : '#22c790',
       'space-red' : '#db3737',
-      'space-darker-red' : '#a82323'
+      'space-darker-red' : '#a82323',
+      'space-dark' : '#1e1e1e'
     },
     boxShadow: {
       'space': '0px 0px 50px 5px rgba(48,181,255,0.8)',
@@ -29,7 +30,7 @@ module.exports = {
     lineHeight: {
       'extra-loose': '2.5',
       '12': '3rem',
-    }
+    },
   },
   plugins: [],
 }

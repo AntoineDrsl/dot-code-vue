@@ -1,9 +1,9 @@
 <template>
   <HomeLayout>
     <template #content>
-      <div class="relative h-screen mb-10">
-        <div class="w-2/3 lg:w-1/2 mt-24 float-right text-center ">
-          <h1 class="lg:text-8xl geminis text-loose text-shadow mb-14">Welcome<br/>on board !</h1>
+      <div class="relative h-96 lg:h-screen mb-10 top-28 xl:top-14 2xl:top-96">
+        <div class="w-2/3 lg:w-1/2 2xl:w-3/5 mt-24 float-right text-center ">
+          <h1 class="lg:text-8xl 2xl:text-9xl geminis text-loose text-shadow mb-14">Welcome<br/>on board !</h1>
           <div class="flex space-x-2">
             <div class="w-full lg:w-1/2">
               <SpaceButton text="Jouer en ligne !" link="room.connection" />
@@ -13,7 +13,7 @@
             </div>
           </div>
         </div>
-        <div class=" top-14 h-5/6  w-5/6 bg-no-repeat bg-contain bg-astronaute">
+        <div class="top-14 h-5/6 w-5/6 bg-no-repeat bg-contain bg-astronaute">
         </div>
       </div>
       <div class="space-y-24 mt-4">
