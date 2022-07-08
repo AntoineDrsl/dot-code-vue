@@ -1,46 +1,51 @@
 <template>
-	<div id="Register">
-		<div class="top-img">
-			<img src="@/assets/images/SpaceCodeGreenLogo.png">
+	<div id="Register" class="h-screen">
+		<div class="w-full flex justify-center mt-2">
+			<img class="w-24" src="@/assets/images/SpaceCodeGreenLogo.png">
 		</div>
-		<div class="main-block">
-			<div class="left-div">
-				<a class="back-link">Retour dans le cyberspace</a>
-				<h1 class="main-title geminis">
+		<img
+			class="opacity-70 w-1/2 -mt-44  -ml-10 relative z-10"
+			src="@/assets/images/planet-ice.png"
+		>
+		<div class="w-full -mt-96 flex relative z-30">
+			<div class="w-1/2 ml-24 -mt-24">
+				<a class="flex items-center text-white no-underline" href="/">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+						<path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+					</svg>
+					Retour dans le cyberspace
+				</a>
+				<h1 class="text-shadow mt-4 lg:text-7xl xl:text-9xl geminis">
 					Welcome<br>on board !
 				</h1>
-				<ul class="links-list">
-					<li class="link-list">
+				<ul class="flex w-full list-none font-bold text-space-green">
+					<li class="ml-6">
 						FOLLOW US
 					</li>
-					<li class="link-list link-image">
+					<li class="ml-16">
 						<a href="#"><img src="@/assets/images/twitter.png"></a>
 					</li>
-					<li class="link-list">
+					<li class="ml-6">
 						<a href="#"><img src="@/assets/images/facebook.png"></a>
 					</li>
-					<li class="link-list">
+					<li class="ml-6">
 						<a href="#"><img src="@/assets/images/linkedin.png"></a>
 					</li>
-					<li class="link-list">
+					<li class="ml-6">
 						<a href="#"><img src="@/assets/images/discord.png"></a>
 					</li>
-					<li class="link-list">
+					<li class="ml-6">
 						<a href="#"><img src="@/assets/images/twitch.png"></a>
 					</li>
 				</ul>
 			</div>
-			<div class="right-div">
+			<div class="w-2/6 -mt-44">
 				<h2 class="geminis sub-title text-center">
 					Créer Notre compte
 				</h2>
 				<register-form />
 			</div>
 		</div>
-		<img
-			class="bg-planet"
-			src="@/assets/images/planet-ice.png"
-		>
 	</div>
 </template>
 
@@ -52,77 +57,5 @@ export default {
 }
 </script>
 
-<style scoped>
-#Register {
-    height: 100vh;
-}
-.top-img {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 1%;
-}
-.top-img > img {
-    width: 7%;
-}
-
-.main-block {
-    width: 100%;
-    height: 50vh;
-    margin-top: 1%;
-    display: flex;
-    position: relative;
-    z-index: 3;
-}
-
-.bg-planet {
-    opacity: 70%;
-    width: 30%;
-    top: -70%;
-    position: relative;
-    z-index: 1;
-}
-.back-link {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 25px;
-    color: white;
-    cursor: pointer;
-}
-
-.left-div {
-    width: 50%;
-    margin-left: 10%;
-    margin-top: 5%;
-}
-.links-list {
-    display: flex;
-    width: full;
-    list-style: none;
-    font-weight: bold;
-    color: #44f5ba;
-}
-.link-list {
-    margin-right: 5%;
-}
-.link-image {
-    margin-left : 10%;
-}
-
-.link-list > a > img{
-    width : 80%
-}
-
-.right-div {
-    margin-left: -5%;
-    width: 30%;
-}
-.main-title {
-  font-size: 7rem;
-  text-shadow: #30b5ff 1px 0 50px;
-  margin-bottom: 20px;
-}
-.sub-title {
-    color: #44f5ba;
-}
+<style scoped> 
 </style>

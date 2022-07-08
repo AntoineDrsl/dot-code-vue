@@ -1,23 +1,23 @@
 <template>
-	<div id="RegisterForm">
-		<div class="input">
+	<div id="RegisterForm" class="bg-white text-black p-4 rounded-3xl">
+		<div class="block mt-2 mb-10">
 			<input
 				id="id-input"
 				v-model="name"
 				type="text"
-				class="id-input"
+				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
 				placeholder="Username"
 			>
 			<input
 				id="id-input"
 				v-model="email"
 				type="text"
-				class="id-input"
+				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
 				placeholder="Email"
 			>
 			<p
 				v-if="!hasValidEmailFormat"
-				class="errors"
+				class="text-red-500 ml-10"
 			>
 				Le format du mail n'est pas valide
 			</p>
@@ -25,38 +25,44 @@
 				id="id-input"
 				v-model="password"
 				type="password"
-				class="id-input"
+				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
 				placeholder="Password"
 			>
 			<input
 				id="id-input"
 				v-model="confirmPassword"
 				type="password"
-				class="id-input"
+				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
 				placeholder="Confirm Password"
 			>
 			<p
 				v-if="!hasValidPassword"
-				class="errors"
+				class="text-red-500 ml-10"
 			>
 				Les deux champs ne correspondent pas
 			</p>
 		</div>
-		<p class="text-center information-text">
+		<p class="text-center text-xs">
 			<span class="bold">En soumettant la demande d'inscription, vous acceptez</span> <br>
-			nos termes d'utilisation <span class="bold">et</span> la politique de confidentialité
+			nos termes d'utilisation <span class="font-bold">et</span> la politique de confidentialité
 		</p>
-		<button
+		<div class="w-full flex justify-center">
+            <button
 			:disabled="!hasValidForm"
-			class="connect-button"
+            class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2"
+			:class="{
+                'cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue' : hasValidForm,
+                'bg-gray-300 cursor-not-allowed' : ! hasValidForm
+            }"
 			@click="onRegister"
 		>
 			S'inscrire
 		</button>
-		<p class="sub-text text-center">
+        </div>
+		<p class="text-xs mt-10 text-center">
 			Vous avez déjà un compte ? 
 			<a
-				class="connexion-link"
+				class="font-bold no-underline cursor-pointer"
 				href="/login"
 			>
 				Connexion
@@ -126,76 +132,4 @@ export default {
 </script>
 
 <style scoped>
-
-* {
-  background: white;
-  color: black;
-}
-
-#RegisterForm {
-    padding: 5%;
-    border-radius: 30px;
-}
-
-.input {
-    display: block;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.id-input {
-    width: 100%;
-    margin-top: 3%;
-    padding: 2%;
-    padding-left: 6%;
-    border-radius: 50px;
-    border: none;
-    background: #090b31;
-    color: white;
-}
-.id-input::placeholder {
-    color: #a1a1a1;
-    font-size: 1rem;
-}
-
-.information-text {
-    font-size: small;
-}
-
-.connect-button {
-    width: 80%;
-    margin-top: 5%;
-    margin-left: 10%;
-    text-align: center;
-    background-color: #090B31;
-    border-radius: 30px;
-    font-weight: 700;
-    padding: 12px 0;
-    box-shadow: 0px 0px 50px 5px rgba(48,181,255,0.8);
-    transition: 0.25s;
-    cursor: pointer;
-    color: #fff;
-}
-
-.connect-button:disabled {
-  background-color: grey;
-  cursor: default;
-}
-
-
-.sub-text {
-    font-size: small;
-    margin-top: 10%;
-}
-
-.connexion-link {
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.errors {
-    color: red;
-    margin-left: 5%;
-}
 </style>

@@ -1,27 +1,29 @@
 <template>
-	<div id="LoginForm">
-		<div class="input">
+	<div id="LoginForm" class="bg-white text-black p-4 rounded-3xl">
+		<div class="block mt-2 mb-10">
 			<input
 				id="id-input"
 				v-model="email"
 				type="text"
-				class="id-input"
+				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
 				placeholder="Username"
 			>
 			<input
 				id="id-input"
 				v-model="password"
-				type="text"
-				class="id-input"
+				type="password"
+				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
 				placeholder="Password"
 			>
 		</div>
-		<button
-			class="connect-button"
-			@click="onLogin"
-		>
-			Se connecter
-		</button>
+		<div class="w-full flex justify-center">
+        <button
+        class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2 cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue"
+        @click="onLogin"
+      >
+        Se connecter
+      </button>
+    </div>
 	</div>
 </template>
 
@@ -56,59 +58,4 @@ export default {
 </script>
 
 <style scoped>
-
-* {
-  background: white;
-  color: black;
-}
-
-#LoginForm {
-    padding: 5%;
-    border-radius: 30px;
-}
-
-.input {
-    display: block;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.id-input {
-    width: 100%;
-    height: 150%;
-    font-size: 150%;
-    margin-top: 3%;
-    padding: 2%;
-    padding-left: 6%;
-    border-radius: 50px;
-    border: none;
-    background: #090b31;
-    color: White;
-    text-align: left;
-}
-
-.id-input::placeholder {
-    color: white;
-}
-
-.connect-button {
-    width: 80%;
-    margin-top: 5%;
-    margin-left: 10%;
-}
-
-.connect-button {
-  width: 80%;
-  margin-top: 5%;
-  margin-left: 10%;
-  text-align: center;
-  background-color: #090B31;
-  border-radius: 30px;
-  font-weight: 700;
-  padding: 12px 0;
-  box-shadow: 0px 0px 50px 5px rgba(48,181,255,0.8);
-  transition: 0.25s;
-  cursor: pointer;
-  color: #fff;
-}
 </style>

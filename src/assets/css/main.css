@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: 'Geminis';
     src: url('../fonts/BD_Geminis/BD_Geminis.otf');
@@ -26,21 +30,10 @@ body {
     font-family: 'Geminis';
 }
 
-.text-right {
-    text-align: right;
-}
-.text-left {
-    text-align: left;
-}
-.text-center {
-    text-align: center;
+.text-shadow {
+    text-shadow: #30b5ff 1px 0 50px;
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.back-icon {
-    width: 2%;
-    margin-top: -0.5%;
+.border-green {
+    border : solid #44f5ba
 }

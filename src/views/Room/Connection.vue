@@ -1,47 +1,32 @@
 <template>
-	<div id="roomConnection">
-		<div class="top-img">
-			<img src="@/assets/images/SpaceCode_DashboardLogOut.png">
-		</div>
-		<div class="connect-pannel">
-			<div id="connection">
-				<h3 class="text-center geminis main-title">
-					Entrez le numéro de votre partie
-				</h3>
-				<div class="input">
-					<input
-						id="id-input"
-						v-model="pin"
-						type="text"
-						class="id-input"
-						placeholder="ID Room"
-					>
-					<span class="error">{{ error }}</span>
-				</div>
-				<SpaceButton
-					text="Annuler"
-					link="home"
-					class="button-cancel"
-				/>
-				<SpaceButton
-					text="Confirmer"
-					class="button-confirm"
-					@click.native="roomConnection"
-				/>
-			</div>
-		</div>
+  <div id="h-full">
+      <div class="w-full flex justify-center">
+          <img src="@/assets/images/SpaceCode_DashboardLogOut.png">
+      </div>
+    <div class="w-full flex justify-center -mt-24">
+      <div class="w-1/2 rounded-lg bg-white text-black">
+        <h3 class="text-center text-4xl geminis text-shadow mt-4 mb-5">
+          Entrez le numéro de votre partie
+        </h3>
+        <div class="w-1/2 ml-32">
+          <input
+            type="text"
+            id="id-input"
+            class="w-full p-2 text-3xl mt-4 ml-14 rounded-full border-none bg-space-dark-blue text-white text-center"
+            placeholder="ID Room"
+            v-model="pin"
+          />
+          <span class="text-red-500">{{ error }}</span>
+        </div>
+        <SpaceButton text="Annuler"  link="home" class="w-1/4 mb-10 float-left mt-10 ml-40"/>
+        <SpaceButton text="Confirmer" class="w-1/4 mb-10 float-right mt-10 mr-40" @click.native="roomConnection"/>
+      </div>
+    </div>
+    <img class="w-1/12 -mt-16 float-right mr-80 opacity-90" src="@/assets/images/diamond.png" alt="">
 
-		<div class="bottom-img">
-			<img
-				src="@/assets/images/diamond.png"
-				alt=""
-			>
-		</div>
-
-		<p class="text-center go-create">
-			Vous voulez plutot créer votre propre room ? <a :href="'/'">C'est ici !</a>
-		</p>
-	</div>
+    <p class="text-center ml-96">Vous voulez plutot créer votre propre room ? <a class="text-white no-underline" :href="'/'">C'est ici !</a></p>
+    
+  </div>
 </template>
 
 <script>
@@ -91,100 +76,4 @@
 </script>
 
 <style scoped>
-  #roomConnection {
-    height: 100vh;
-  }
-
-  .top-img {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .connect-pannel {
-    margin-top: -10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .bottom-img img{
-      width: 12%;
-      height: 10%;
-      margin-top: -8%;
-      margin-left: 67.5%;
-      opacity: 90%;
-  }
-
-  .go-create {
-      margin-top: -4%;
-  }
-
-  a {
-      color: white;
-      text-decoration: none;
-  }
-
-  #connection {
-    width: 50%;
-    border-radius: 10px;
-    background: white;
-    color: black;
-  }
-
-  .main-title {
-    font-size: 250%;
-    text-shadow: #30b5ff 1px 0 50px;
-    margin-top: 3%;
-    margin-bottom: 5%;
-  }
-
-  .input {
-    width: 50%;
-    height: 10%;
-    margin-left: 17.5%;
-    margin-top: 5%;
-  }
-
-  .id-input {
-    width: 100%;
-    height: 150%;
-    font-size: 200%;
-    margin-top: 5%;
-    margin-left: 15%;
-    border-radius: 50px;
-    border: none;
-    background: #090b31;
-    box-shadow: 0px 0px 50px 5px rgba(48, 181, 255, 0.8);
-    color: White;
-    text-align: center;
-  }
-
-  .button-confirm, .button-cancel {
-    width: 25%;
-    float: right;
-    margin-top: 10%;
-    margin-right: 5%;
-    cursor: pointer;
-    color: white;
-  }
-
-  .button-confirm{
-    float: right;
-    margin-right: 15%;
-  }
-
-  .button-cancel {
-    float: left;
-    margin-left: 15%;
-  }
-  .button-confirm:hover, .button-cancel:hover {
-    background-color: #fff;
-    color: #4d2a9c;
-    cursor: pointer;
-    transition: 0.25s;
-  }
-  .error {
-    color: red;
-  }
 </style>

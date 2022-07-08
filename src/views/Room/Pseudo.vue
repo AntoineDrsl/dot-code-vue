@@ -1,43 +1,26 @@
 <template>
-	<div id="roomPseudo">
-		<p class="id-room">
-			#<span class="geminis">{{ $route.params.pin }}</span>
-		</p>
-		<div class="top-img">
-			<img
-				src="@/assets/images/SpaceCode_DashboardLogOut.png"
-				alt=""
-			>
-		</div>
-		<div class="pseudo-pannel">
-			<div id="pseudo">
-				<h1 class="geminis text-center main-title">
-					Entre ton Nom
-				</h1>
-				<div class="input">
-					<input
-						v-model="pseudo"
-						type="text"
-						placeholder="Pseudo"
-						class="pseudo-input"
-					>
-				</div>
-        
-				<div>{{ error }}</div>
-				<SpaceButton
-					class="continue"
-					text="Continuer"
-					@click.native="sendPseudo"
-				/>
-			</div>
-		</div>
-		<div class="bottom-img">
-			<img
-				src="@/assets/images/diamond.png"
-				alt=""
-			>
-		</div>
-	</div>
+  <div id="h-screen">
+    <p class="text-3xl p-2 text-space-green">
+      #{{ $route.params.pin }}
+    </p>
+    <div class="w-full flex justify-center">
+      <img src="@/assets/images/SpaceCode_DashboardLogOut.png" alt="" />
+    </div>
+    <div class="w-full flex justify-center -mt-24">
+      <div class="grid justify-items-center w-1/2 h-auto bg-white rounded-3xl space-y-4 z-minus">
+        <h1 class="geminis text-space-dark-blue mt-4 text-3xl xl:text-5xl">Entre ton Nom</h1>
+        <div class="input w-1/2 h-1/12">
+          <input type="text" placeholder="Pseudo" class="text-lg py-2 w-full rounded-full bg-space-dark-blue shadow-space text-white text-center" v-model="pseudo"/>
+        </div>
+        <div>{{ error }}</div>
+        <SpaceButton class="w-1/2 mb-4" text="Continuer" @click.native="sendPseudo" />
+      </div>
+    </div>
+    <div>
+      <img class="w-1/12 -mt-16 float-right mr-80 opacity-90" src="@/assets/images/diamond.png" alt="" />
+    </div>
+    
+  </div>
 </template>
 
 <script>
@@ -84,69 +67,4 @@
 </script>
 
 <style scoped>
-  #roomPseudo {
-    height: 100vh;
-  }
-
-  .top-img {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .pseudo-pannel {
-    margin-top: -10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .bottom-img img {
-    width: 12%;
-    height: 10%;
-    margin-top: -8%;
-    margin-left: 67.5%;
-    opacity: 90%;
-  }
-
-  #pseudo {
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
-    background: white;
-    color: black;
-  }
-
-  .main-title {
-    font-size: 250%;
-    text-shadow: #30b5ff 1px 0 50px;
-    margin-top: 3%;
-  }
-
-  .input {
-    width: 50%;
-    height: 10%;
-    margin-left: 17.5%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-  }
-
-  .pseudo-input {
-    width: 100%;
-    font-size: 200%;
-    margin-top: 5%;
-    margin-left: 15%;
-    border-radius: 50px;
-    border: none;
-    background: #090b31;
-    box-shadow: 0px 0px 50px 5px rgba(48, 181, 255, 0.8);
-    color: white;
-    text-align: center;
-  }
-
-  .continue {
-    width: 50%;
-    float: right;
-    margin-right: 25%;
-    cursor: pointer;
-    color: white;
-  }
 </style>
