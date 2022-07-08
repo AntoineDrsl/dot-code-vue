@@ -10,7 +10,7 @@
 			>
 		</div>
 		<div class="w-full flex justify-center -mt-24">
-			<div class="grid justify-items-center w-1/2 h-auto bg-white rounded-3xl space-y-4 z-minus">
+			<div class="relative grid justify-items-center w-1/2 h-auto bg-white rounded-3xl space-y-4 z-minus">
 				<h1 class="geminis text-space-dark-blue mt-4 text-3xl xl:text-5xl">
 					Entre ton Nom
 				</h1>
@@ -28,14 +28,12 @@
 					text="Continuer"
 					@click.native="sendPseudo"
 				/>
+				<img
+					class="absolute -bottom-8 -right-8 w-2/12 opacity-90"
+					src="@/assets/images/diamond.png"
+					alt=""
+				>
 			</div>
-		</div>
-		<div>
-			<img
-				class="w-1/12 -mt-16 float-right mr-80 opacity-90"
-				src="@/assets/images/diamond.png"
-				alt=""
-			>
 		</div>
 	</div>
 </template>
