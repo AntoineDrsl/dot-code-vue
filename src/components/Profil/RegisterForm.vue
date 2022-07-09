@@ -60,7 +60,7 @@
 		</button>
         </div>
 		<p class="text-xs mt-10 text-center">
-			Vous avez déjà un compte ? 
+			Vous avez déjà un compte ?
 			<a
 				class="font-bold no-underline cursor-pointer"
 				href="/login"
@@ -88,7 +88,7 @@ export default {
     computed : {
         hasValidForm() {
             return this.hasValidEmailFormat
-            && this.hasValidPassword 
+            && this.hasValidPassword
             && this.name.length > 0
             && this.password.length > 0
             && this.confirmPassword.length > 0

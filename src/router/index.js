@@ -15,6 +15,7 @@ import PrivateMode from '../views/privateparty/Mode'
 import test from "../middlewares/test"
 import Register from '../views/profil/Register.vue'
 import Login from '../views/profil/Login.vue'
+import Menu from "../views/menu/Menu";
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [
     meta: {
       middlewares: [test]
     }
+  },
+  {
+    path: "/menu",
+    name: "tamere",
+    component: Menu
   },
   {
     path: '/register',
@@ -104,7 +110,7 @@ const routes = [
     name: 'RoomLose',
     component: RoomLose
   }
-  
+
 ]
 
 /**
@@ -133,11 +139,11 @@ router.beforeEach((to, from, next) => {
 
 /**
  * Launch all middlewares recursively
- * 
- * @param {*} context 
- * @param {*} middlewares 
- * @param int index 
- * @returns 
+ *
+ * @param {*} context
+ * @param {*} middlewares
+ * @param int index
+ * @returns
  */
 function nextFactory(context, middlewares, index) {
   const middleware = middlewares[index];
