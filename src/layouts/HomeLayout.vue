@@ -9,8 +9,8 @@
 </template>
 
 <script>
-    import Navbar from '@/layouts/partials/home-layout/Navbar'
     import Footer from '@/layouts/partials/home-layout/Footer'
+    import Navbar from "./partials/home-layout/Navbar";
 
     export default {
         name: 'HomeLayout',
