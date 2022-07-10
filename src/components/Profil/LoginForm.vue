@@ -1,5 +1,8 @@
 <template>
-	<div id="LoginForm" class="bg-white text-black p-4 rounded-3xl">
+	<div
+		id="LoginForm"
+		class="bg-white text-black p-4 rounded-3xl"
+	>
 		<div class="block mt-2 mb-10">
 			<input
 				id="id-input"
@@ -17,13 +20,13 @@
 			>
 		</div>
 		<div class="w-full flex justify-center">
-        <button
-        class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2 cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue"
-        @click="onLogin"
-      >
-        Se connecter
-      </button>
-    </div>
+			<button
+				class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2 cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue"
+				@click="onLogin"
+			>
+				Se connecter
+			</button>
+		</div>
 	</div>
 </template>
 
