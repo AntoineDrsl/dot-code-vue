@@ -1,7 +1,13 @@
 <template>
-	<div id="Login" class="h-screen">
+	<div
+		id="Login"
+		class="h-screen"
+	>
 		<div class="w-full flex justify-center mt-2">
-			<img class="w-24" src="@/assets/images/SpaceCodeGreenLogo.png">
+			<img
+				class="w-24"
+				src="@/assets/images/SpaceCodeGreenLogo.png"
+			>
 		</div>
 		<div class="w-full mt-5 flex justify-center relative z-20">
 			<SpaceButton
@@ -20,9 +26,21 @@
 		>
 		<div class="w-full -mt-96 flex relative z-30">
 			<div class="w-1/2 ml-40">
-				<a class="flex items-center text-white no-underline cursor-pointer" href="/">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-						<path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+				<a
+					class="flex items-center text-white no-underline cursor-pointer"
+					href="/"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-5 w-5"
+						viewBox="0 0 20 20"
+						fill="currentColor"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+							clip-rule="evenodd"
+						/>
 					</svg>
 					Retour dans le cyberspace
 				</a>
