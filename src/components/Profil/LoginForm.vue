@@ -37,8 +37,8 @@ export default {
     name: "LoginForm",
     data() {
       return {
-        email: "sharcan@gmail.com",
-        password: "azerty123",
+        email: "",
+        password: "",
       }
     },
     methods: {
