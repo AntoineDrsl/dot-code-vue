@@ -1,44 +1,46 @@
 <template>
-    <div class="h-screen max-h-screen">
-        <!-- IMAGES BACKGROUND -->
-        <img alt="metal planet" width="500" class="planet-img" src="@/assets/images/planet-metal.png">
-        <img alt="diamond" width="200" class="diamond-img" src="@/assets/images/diamond-2.png">
+    <transition name="menu" mode="out-in">
+        <div class="h-screen max-h-screen">
+            <!-- IMAGES BACKGROUND -->
+            <img alt="metal planet" width="500" class="planet-img" src="@/assets/images/planet-metal.png">
+            <img alt="diamond" width="200" class="diamond-img" src="@/assets/images/diamond-2.png">
 
-        <!-- MENU -->
-        <div class="h-full flex flex-col items-center justify-content-between py-5">
-            <img alt="spacecode_logo" class="w-24" src="@/assets/images/SpaceCodeGreenLogo.png"
-                @click="test">
+            <!-- MENU -->
+            <div class="h-full flex flex-col items-center justify-content-between py-5">
+                <img alt="spacecode_logo" class="w-24" src="@/assets/images/SpaceCodeGreenLogo.png"
+                    @click="test">
 
-            <div class="flex flex-col space-y-2 bg-white rounded-3xl w-25 text-center py-12 text-xl">
-                <div class="text-space-dark-blue font-bold cursor-pointer">
-                    Connexion
+                <div class="flex flex-col space-y-2 bg-white rounded-3xl w-25 text-center py-12 text-xl">
+                    <div class="text-space-dark-blue font-bold cursor-pointer">
+                        Connexion
+                    </div>
+                    <div class="text-space-dark-blue font-bold cursor-pointer">
+                        Inscription
+                    </div>
                 </div>
-                <div class="text-space-dark-blue font-bold cursor-pointer">
-                    Inscription
-                </div>
-            </div>
 
-            <div>
-                <ul class="flex w-full list-none font-bold text-space-green p-0 space-x-12">
-                    <li>
-                        <a href="#"><img src="@/assets/images/twitter.png"></a>
-                    </li>
-                    <li class="">
-                        <a href="#"><img src="@/assets/images/facebook.png"></a>
-                    </li>
-                    <li class="">
-                        <a href="#"><img src="@/assets/images/linkedin.png"></a>
-                    </li>
-                    <li class="">
-                        <a href="#"><img src="@/assets/images/discord.png"></a>
-                    </li>
-                    <li class="">
-                        <a href="#"><img src="@/assets/images/twitch.png"></a>
-                    </li>
-                </ul>
+                <div>
+                    <ul class="flex w-full list-none font-bold text-space-green p-0 space-x-12">
+                        <li>
+                            <a href="#"><img src="@/assets/images/twitter.png"></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><img src="@/assets/images/facebook.png"></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><img src="@/assets/images/linkedin.png"></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><img src="@/assets/images/discord.png"></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><img src="@/assets/images/twitch.png"></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </transition>
 </template>
 <script>
 export default {
@@ -51,7 +53,6 @@ export default {
 }
 </script>
 <style scoped>
-
 .planet-img {
     position: absolute;
     z-index: -1;
@@ -66,5 +67,14 @@ export default {
     right: 200px;
     transform: rotate(-50deg);
     filter: drop-shadow(0 0 0.25rem cyan);
+}
+
+.menu-enter-active,
+.menu-leave-active {
+    transition: opacity 0.5s ease;
+}
+.menu-enter-from,
+.menu-leave-to {
+    opacity: 0;
 }
 </style>

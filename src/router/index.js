@@ -15,6 +15,7 @@ import PrivateMode from '../views/privateparty/Mode'
 import test from "../middlewares/test"
 import Register from '../views/profil/Register.vue'
 import Login from '../views/profil/Login.vue'
+import Menu from "../views/menu/Menu";
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [
     meta: {
       middlewares: [test]
     }
+  },
+  {
+    path: '/menu',
+    name: 'menu',
+    component: Menu
   },
   {
     path: '/register',

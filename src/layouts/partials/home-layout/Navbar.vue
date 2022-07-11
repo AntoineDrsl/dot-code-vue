@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar" v-if="!isOpened">
+    <div class="navbar">
         <img
             class="btn-moon"
             src="@/assets/images/btn-moon.svg"
@@ -13,22 +13,14 @@
             alt="Astro button"
         >
     </div>
-    <div v-else>
-        <Menu @test="openMenu"/>
-    </div>
 </template>
 
 <script>
 export default {
     name: 'Navbar',
-    data() {
-        return {
-            isOpened: false
-        }
-    },
     methods: {
         openMenu() {
-            this.isOpened = !this.isOpened;
+            this.$router.push('/menu');
         }
     }
 }
