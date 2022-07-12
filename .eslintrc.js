@@ -9,6 +9,7 @@ module.exports = {
         'vue/html-indent': ['warn', 'tab'],
         'vue/multi-word-component-names': 'off',
         'vue/require-default-prop': 'off',
+        'vue/experimental-script-setup-vars': 'off',
         'vue/no-reserved-component-names': 'off', // TODO
         'vue/no-deprecated-v-on-native-modifier': 'off', // TODO
         'vue/no-template-shadow': 'off' // TODO

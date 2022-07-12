@@ -1,32 +1,49 @@
 <template>
-  <div id="h-full">
-      <div class="w-full flex justify-center">
-          <img src="@/assets/images/SpaceCode_DashboardLogOut.png">
-      </div>
-    <div class="w-full flex justify-center -mt-24">
-      <div class="w-1/2 rounded-lg bg-white text-black">
-        <h3 class="text-center text-4xl geminis text-shadow mt-4 mb-5">
-          Entrez le numéro de votre partie
-        </h3>
-        <div class="w-1/2 ml-32">
-          <input
-            type="text"
-            id="id-input"
-            class="w-full p-2 text-3xl mt-4 ml-14 rounded-full border-none bg-space-dark-blue text-white text-center"
-            placeholder="ID Room"
-            v-model="pin"
-          />
-          <span class="text-red-500">{{ error }}</span>
-        </div>
-        <SpaceButton text="Annuler"  link="home" class="w-1/4 mb-10 float-left mt-10 ml-40"/>
-        <SpaceButton text="Confirmer" class="w-1/4 mb-10 float-right mt-10 mr-40" @click.native="roomConnection"/>
-      </div>
-    </div>
-    <img class="w-1/12 -mt-16 float-right mr-80 opacity-90" src="@/assets/images/diamond.png" alt="">
+	<div class="h-full flex flex-col items-center">
+		<!-- Img -->
+		<img src="@/assets/images/SpaceCode_DashboardLogOut.png">
 
-    <p class="text-center ml-96">Vous voulez plutot créer votre propre room ? <a class="text-white no-underline" :href="'/'">C'est ici !</a></p>
-    
-  </div>
+		<!-- Card -->
+		<div class="relative flex flex-col items-center w-1/2 -mt-24 rounded-lg bg-white text-black">
+			<h3 class="text-center text-4xl geminis text-shadow mt-4 mb-5">
+				Rejoignez une partie
+			</h3>
+			<input
+				id="id-input"
+				v-model="pin"
+				type="text"
+				class="w-1/2 p-2 text-3xl rounded-full border-none bg-space-dark-blue text-white text-center"
+				placeholder="ID Room"
+			>
+			<span class="text-red-500">{{ error }}</span>
+			<div class="flex justify-between w-1/2 mb-10 mt-7">
+				<SpaceButton
+					text="Annuler"
+					link="home"
+					class="w-5/12"
+				/>
+				<SpaceButton
+					text="Confirmer"
+					class="w-5/12"
+					@click.native="roomConnection"
+				/>
+			</div>
+			<img
+				class="absolute -bottom-8 -right-8 w-2/12 opacity-90"
+				src="@/assets/images/diamond.png"
+				alt=""
+			>
+			<!-- <p class="text-white absolute -bottom-10 left-0">
+				Vous souhaitez créer votre propre room ? 
+				<router-link
+					:to="{ name: 'room.pseudo' }"
+					class="text-white no-underline"
+				>
+					C'est ici !
+				</router-link>
+			</p> -->
+		</div>
+	</div>
 </template>
 
 <script>

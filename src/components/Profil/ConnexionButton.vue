@@ -1,5 +1,8 @@
 <template>
-	<div id="ConnexionButton" class="p-4 rounded-3xl bg-white mt-6">
+	<div
+		id="ConnexionButton"
+		class="p-4 rounded-3xl bg-white mt-6"
+	>
 		<button class="mt-2 w-full flex text-center bg-space-dark-blue rounded-full font-bold cursor-pointer text-white px-4 py-2"> 
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

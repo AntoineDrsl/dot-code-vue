@@ -1,5 +1,8 @@
 <template>
-	<div id="RegisterForm" class="bg-white text-black p-4 rounded-3xl">
+	<div
+		id="RegisterForm"
+		class="bg-white text-black p-4 rounded-3xl"
+	>
 		<div class="block mt-2 mb-10">
 			<input
 				id="id-input"
@@ -47,18 +50,18 @@
 			nos termes d'utilisation <span class="font-bold">et</span> la politique de confidentialité
 		</p>
 		<div class="w-full flex justify-center">
-            <button
-			:disabled="!hasValidForm"
-            class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2"
-			:class="{
-                'cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue' : hasValidForm,
-                'bg-gray-300 cursor-not-allowed' : ! hasValidForm
-            }"
-			@click="onRegister"
-		>
-			S'inscrire
-		</button>
-        </div>
+			<button
+				:disabled="!hasValidForm"
+				class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2"
+				:class="{
+					'cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue' : hasValidForm,
+					'bg-gray-300 cursor-not-allowed' : ! hasValidForm
+				}"
+				@click="onRegister"
+			>
+				S'inscrire
+			</button>
+		</div>
 		<p class="text-xs mt-10 text-center">
 			Vous avez déjà un compte ? 
 			<a
