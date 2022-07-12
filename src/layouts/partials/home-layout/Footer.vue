@@ -1,9 +1,12 @@
 <template>
-	<div class="footer">
-		<a href="#">MENTIONS LEGALES</a>
-		<a href="#">DONNEES PERSONNELLES & COOKIES</a>
-		<a href="#">CONDITIONS D'UTILISATION</a>
-		<a href="#">SIGNALER UN PROBLEME</a>
+	<div class="bg-space-dark-blue text-xs h-10 lg:w-4/5 xl:w-3/5 flex space-x-1 space-between justify-center items-center m-auto">
+		<a class="text-white no-underline font-bold" href="#">MENTIONS LEGALES</a>
+        <span> | </span>
+		<a class="text-white no-underline font-bold" href="#">DONNEES PERSONNELLES & COOKIES</a>
+        <span> | </span>
+		<a class="text-white no-underline font-bold" href="#">CONDITIONS D'UTILISATION</a>
+        <span> | </span>
+		<a class="text-white no-underline font-bold" href="#">SIGNALER UN PROBLEME</a>
 	</div>
 </template>
 
@@ -14,19 +17,4 @@
 </script>
 
 <style scoped>
-    .footer {
-        background-color: #090B31;
-        font-size: 0.6rem;
-        height: 50px;
-        width: 40%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-    }
-    .footer a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 800;
-    }
 </style>
