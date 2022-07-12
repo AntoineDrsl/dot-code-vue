@@ -13,7 +13,7 @@
             </div>
           </div>
         </div>
-        <div class="top-14 h-5/6 w-5/6 bg-no-repeat bg-contain bg-astronaute">
+        <div class="h-5/6 w-5/6 bg-no-repeat bg-contain bg-astronaute">
         </div>
       </div>
       <div class="space-y-24 mt-4">
@@ -48,13 +48,13 @@
             />
           </div>
         </div>
-  
+
         <div class="relative h-80 flex items-center justify-end">
           <div class="lg:w-3/5 text-right">
             <h2 class="geminis">Interstellar Supernova</h2>
             <p class="w-3/5 lg:w-full ml-56 lg:ml-0">
               <strong> Comment ça fonctionne ? </strong> <br/>
-        
+
               Discutez du défi, des meilleures pratiques et des techniques innovantes avec la communauté. Laissez-vous
               surprendre par la façon dont les autres abordent le même problème que vous. Créez des mini-jeux qui se
               concentrent sur vos connaissances et permettez aux autres de s’entraîner. Défiez la communauté avec vos
@@ -80,21 +80,21 @@
             />
           </div>
         </div>
-  
+
         <div class="relative h-80 flex items-center py-56 lg:py-24">
           <div class="w-3/5">
             <h2 class="geminis">FIGHT LIKE A Rocket Man !</h2>
             <p>
               <strong>Ce que propose SPACECODE ?</strong> <br/>
-        
+
               SPACECODE est avant tout un endroit pour apprendre, s'entraider avec une communauté importante de
               joueurs/développeurs, mais c'est aussi et surtout un espace de compétition et de coopération ! <br>
-        
+
               <strong>En mode Collaboration : </strong> <br/>
               Choisissez votre équipe et votre langage et résolvez des exercices de développement. Un classement mensuel
               des meilleures équipes sera mis en avant sur le Dashboard et vous serez invités à participer à nos finales
               mondiales virtuelles. <br>
-        
+
               <strong>En mode Compétition : </strong> <br/>
               C'est dans cet espace-temps que les programmeurs de tous niveaux mettent leurs compétences à l'épreuve. Les
               concurrents se frayent un chemin à travers une série de puzzles en ligne pour remporter le titre de
@@ -121,7 +121,7 @@
         </div>
       </div>
 
-      
+
 
       <div class="w-full bg-white h-60 rounded-full relative mt-60">
         <div class="flex flex-column w-full items-center space-y-4">
@@ -193,10 +193,10 @@
 
 <style>
   .bg-astronaute {
-    background: url("~@/assets/images/bg-astronaute-2.png");
+    background: url("~@/assets/images/welcome-on-board.png");
     z-index: -1;
   }
-  
+
   .planet-red-img {
     animation-name: planet-movement;
     animation-duration: 120s;
@@ -204,7 +204,7 @@
     animation-timing-function: ease-in-out;
     animation-direction: normal;
   }
-  
+
   .diamond-img {
     animation-name: diamond-movement;
     animation-duration: 5s;
@@ -269,7 +269,7 @@
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
   }
-  
+
   .diamond {
     animation-name: diamond-movement;
     animation-duration: 10s;
