@@ -23,7 +23,6 @@
 
 <style scoped>
     .home-container {
-        margin-top: 12vh;
         padding: 0 100px;
     }
 </style>
