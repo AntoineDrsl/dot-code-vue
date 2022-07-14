@@ -16,6 +16,7 @@ import test from "../middlewares/test"
 import Register from '../views/profil/Register.vue'
 import Login from '../views/profil/Login.vue'
 import About from "../views/About";
+import Settings from '../views/Room/Settings.vue'
 
 Vue.use(VueRouter)
 
@@ -79,6 +80,11 @@ const routes = [
         path: 'team',
         name: 'room.team',
         component: Team
+      },
+      {
+        path: 'settings',
+        name: 'room.settings',
+        component: Settings
       },
       {
         path: '',
