@@ -224,9 +224,9 @@
 			// Room has been launched
 			launchGame(room) {
 				if(room.mode == 'vs') {
-        	router.push({ path: `/room/${this.$route.params.pin}/teams` });
+        			router.push({ path: `/room/${this.$route.params.pin}/teams` })
 				} else if(room.mode == 'multi') {
-					// TODO - Coop
+					router.push({ path: `/room/${this.$route.params.pin}` })
 				}
 			}
     },
