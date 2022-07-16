@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: "Game"
+  name: "RoomContainer"
 }
 </script>

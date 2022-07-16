@@ -155,10 +155,14 @@
     import axios from 'axios'
 
     export default {
-        name: 'MultiErrors',
+        name: 'ErrorsVs',
         components: {
             GameLayout,
             SpaceButton
+        },
+        props: {
+            user: Object,
+            room: Object,
         },
         data() {
             return {
@@ -167,9 +171,6 @@
                 opponentEditor: null,
                 output: null,
                 loading: false,
-
-                user: null,
-                room: null,
 
                 exercise_number: 0,
                 opponent_exercise_number: 0,
@@ -219,17 +220,6 @@
         },
         async mounted() {
             document.title = 'Corrige le code | DotCode'
-
-            // Get user
-            const userId = parseInt(localStorage.getItem('user'));
-            this.user = await axios.get(process.env.VUE_APP_API_URL + 'user/' + userId)
-                .then(res => res.data)
-                .catch(() => this.$router.push({ name: 'room.connection' }));
-
-            // Get room
-            this.room = await axios.get(`${process.env.VUE_APP_API_URL}room/pin/${this.$route.params.pin}`)
-                .then(res => res.data)
-                .catch(() => this.$router.push({ name: 'room.connection' }));
 
             const userTeam = this.room.teams.find(team => team.id === this.user.team.id);
             const opponentTeam = this.room.teams.find(team => team.id !== this.user.team.id);

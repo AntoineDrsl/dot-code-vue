@@ -9,7 +9,7 @@
 <script>
 import PrivateLayout from '../../layouts/PrivateLayout.vue'
 export default {
- name : 'PrivateParty',
+ name : 'PrivatePartyContainer',
   components: { PrivateLayout }
 }
 </script>

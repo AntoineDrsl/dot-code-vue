@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
-import MultiErrors from '../views/games/MultiErrors'
+import RoomContainer from '../views/Room/RoomContainer'
+import Game from '../views/Game'
 import Connection from '../views/Room/Connection'
 import Pseudo from '../views/Room/Pseudo'
 import Team from '../views/Room/Team'
 import Test from '../views/Test'
-import Game from "../views/Room/Game"
 import RoomWin from "../views/Room/RoomWin"
 import RoomLose from "../views/Room/RoomLose"
-import PrivateParty from '../views/Room/PrivateParty'
-import PrivateCreation from '../views/privateparty/Creation'
-import PrivateMode from '../views/privateparty/Mode'
+import PrivatePartyContainer from '../views/PrivateParty/PrivatePartyContainer'
+import PrivateCreation from '../views/PrivateParty/Creation'
+import PrivateMode from '../views/PrivateParty/Mode'
 import test from "../middlewares/test"
-import Register from '../views/profil/Register.vue'
-import Login from '../views/profil/Login.vue'
+import Register from '../views/Profile/Register.vue'
+import Login from '../views/Profile/Login.vue'
 import About from "../views/About";
 import Settings from '../views/Room/Settings.vue'
 
@@ -54,7 +54,7 @@ const routes = [
   },
   {
     path:'/private-party',
-    component: PrivateParty,
+    component: PrivatePartyContainer,
     children : [
       {
         path: '',
@@ -69,7 +69,7 @@ const routes = [
   },
   {
     path: '/room/:pin/',
-    component: Game,
+    component: RoomContainer,
     children: [
       {
         path: 'pseudo',
@@ -89,7 +89,7 @@ const routes = [
       {
         path: '',
         name: 'room.game',
-        component: MultiErrors
+        component: Game
       }
     ]
   },

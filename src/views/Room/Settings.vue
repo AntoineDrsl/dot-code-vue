@@ -192,6 +192,11 @@
 					return;
 				}
 
+				// Check at least 2 players
+				if(this.room?.users.length < 2) {
+					return;
+				}
+
 				this.$socket.client.emit(
           "launchGame",
           { pin: this.$route.params.pin },

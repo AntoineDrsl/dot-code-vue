@@ -75,11 +75,25 @@
           return;
         }
 
+				if(room.has_started) {
+					this.error = 'La partie a déjà commencé';
+					return;
+				}
+
         // Connect user
         const userId = localStorage.getItem('user');
-        await axios.patch(`${process.env.VUE_APP_API_URL}user/${userId}/connect`, {
+        const res = await axios.patch(`${process.env.VUE_APP_API_URL}user/${userId}/connect`, {
           room_id: room.id
-        });
+        })
+					.then((res) => res.data)
+					.catch(() => {
+            this.error = 'Connexion à la room impossible';
+          });
+
+				if(res.error) {
+					this.error = res.error
+					return;
+				}
 
         // Emit connection event
         this.$socket.client.emit('userJoinsRoom', {
