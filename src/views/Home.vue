@@ -201,7 +201,7 @@
         const userId = parseInt(localStorage.getItem('user'));
 
         // Create room
-        const room = await axios.post(process.env.VUE_APP_API_URL + 'room/with-teams', {
+        const room = await axios.post(process.env.VUE_APP_API_URL + 'room', {
           owner_id: userId
         }).then(res => res.data);
 
@@ -211,7 +211,7 @@
         });
 
         // Redirect
-        return await this.$router.push({ name: 'room.pseudo', params: { pin: room.pin } });
+        return await this.$router.push({ name: 'room.settings', params: { pin: room.pin } });
       },
       async disconnectFromAll() {
         const userId = parseInt(localStorage.getItem('user'));

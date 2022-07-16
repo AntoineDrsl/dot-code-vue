@@ -143,7 +143,7 @@
 </template>
 
 <script>
-  import router from "../../router";
+  import router from '../../router'
   import axios from 'axios'
 
   export default {
@@ -156,6 +156,7 @@
       };
     },
     async mounted() {
+			// Get user
       const userId = localStorage.getItem('user');
       this.user = await axios.get(`${process.env.VUE_APP_API_URL}user/${userId}`).then(res => res.data);
 
