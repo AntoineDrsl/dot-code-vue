@@ -225,7 +225,7 @@
 
 <style scoped>
   .bg-astronaute {
-    background: url("~@/assets/images/bg-astronaute-2.png");
+    background: url("~@/assets/images/welcome-on-board.png");
     z-index: -1;
   }
 

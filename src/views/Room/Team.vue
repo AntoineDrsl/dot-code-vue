@@ -109,7 +109,7 @@
 					v-if="room"
 					class="mt-4 lg:mt-14"
 				>
-					Joueurs dans la room: 
+					Joueurs dans la room:
 					<span
 						v-for="user in room.users"
 						:key="user.id"

@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
-        <router-view />
+        <Particles />
+		<router-view />
 	</div>
 </template>
 
@@ -9,3 +10,9 @@
     color: #FFF;
   }
 </style>
+<script>
+import Particles from "./components/Particles/Particles";
+export default {
+  components: {Particles}
+}
+</script>
