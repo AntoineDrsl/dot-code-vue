@@ -1,5 +1,4 @@
 <template>
-    <transition name="menu" mode="out-in">
         <div class="h-screen max-h-screen w-screen absolute top-0 left-0 bg-space-dark-blue">
             <!-- MENU -->
             <div class="h-full flex flex-col items-center justify-between py-5">
@@ -50,7 +49,6 @@
             <img alt="metal planet" width="500" class="planet-img" src="@/assets/images/planet-metal.png">
             <img alt="diamond" width="200" class="diamond-img" src="@/assets/images/diamond-2.png">
         </div>
-    </transition>
 </template>
 <script>
 export default {

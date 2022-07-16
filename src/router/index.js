@@ -33,11 +33,6 @@ const routes = [
     }
   },
   {
-    path: '/menu',
-    name: 'menu',
-    component: Menu
-  },
-  {
     path: '/register',
     name : 'register',
     component: Register
