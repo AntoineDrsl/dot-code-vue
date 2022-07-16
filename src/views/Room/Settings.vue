@@ -76,7 +76,7 @@
 				</div>
 				<SpaceButton
 					text="Démarrer la partie"
-					@click.native="createRoom"
+					@click.native="launchGame"
 				/>
 			</div>
 		</div>
@@ -175,6 +175,32 @@
           pin: this.$route.params.pin,
 					mode: mode,
         });
+			},
+			async launchGame() {
+				// Only owner can launch
+				if(this.room?.owner?.id != this.user.id) {
+					return;
+				}
+
+				// Check room not already started
+				if(this.room?.has_started) {
+					return;
+				}
+
+				// Check room mode is set
+				if(!this.room?.mode) {
+					return;
+				}
+
+				this.$socket.client.emit(
+          "launchGame",
+          { pin: this.$route.params.pin },
+          (res) => {
+            if (res.error) {
+              this.err = res.error;
+            }
+          }
+        );
 			}
 		},
 		sockets: {
@@ -189,6 +215,14 @@
 			// Room mode has been changed
 			changeRoomMode(room) {
 				this.room = room;
+			},
+			// Room has been launched
+			launchGame(room) {
+				if(room.mode == 'vs') {
+        	router.push({ path: `/room/${this.$route.params.pin}/teams` });
+				} else if(room.mode == 'multi') {
+					// TODO - Coop
+				}
 			}
     },
 	}

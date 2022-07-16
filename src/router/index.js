@@ -77,8 +77,8 @@ const routes = [
         component: Pseudo
       },
       {
-        path: 'team',
-        name: 'room.team',
+        path: 'teams',
+        name: 'room.teams',
         component: Team
       },
       {

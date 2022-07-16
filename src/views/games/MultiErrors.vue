@@ -22,7 +22,7 @@
 					</div>
 					<div
 						id="editor-1"
-						class="lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
+						class="h-2/6 lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
 						@click="onIdeClick"
 					/>
 					<div class="w-full flex flex-col mt-2">
@@ -199,7 +199,7 @@
 
                 if(newVal <= 9) {
                     // Next exercise
-                    this.userEditor.getModel().setValue(exercices[newVal].code);
+                    this.userEditor?.getModel().setValue(exercices[newVal].code);
                     this.output = null;
                     this.loading = false;
                 } else {
@@ -210,7 +210,7 @@
             async opponent_exercise_number(newVal) {
                 if(newVal <= 9) {
                     // Next exercise for opponent
-                    this.opponentEditor.getModel().setValue(exercices[newVal].code);
+                    this.opponentEditor?.getModel().setValue(exercices[newVal].code);
                 } else {
                     // Loose page
                     await router.push({ path: `/room-lose` });
