@@ -24,13 +24,19 @@
 			>
 		</div>
 		<div class="flex p-1.5 ml-1 space-x-4">
-			<button class="w-full bg-space-green text-center rounded-full border-none relative text-white text-xl font-bold px-4 py-2 transition duration-150 hover:bg-space-darker-green shadow-space">
-				Evidemment !
-			</button>
-			<button class="w-full bg-space-red text-center rounded-full border-none relative text-white text-xl font-bold px-4 py-2 transition duration-150 hover:bg-space-darker-red shadow-space">
-				Non, j'ai eu ma dose
-			</button>
-		</div>
+      <button 
+      class="w-full bg-space-green text-center rounded-full border-none relative text-white text-xl font-bold px-4 py-2 transition duration-150 hover:bg-space-darker-green shadow-space"
+      @click="$router.push('/')"
+      >
+        Evidemment !
+      </button>
+      <button 
+      class="w-full bg-space-red text-center rounded-full border-none relative text-white text-xl font-bold px-4 py-2 transition duration-150 hover:bg-space-darker-red shadow-space"
+      @click="$router.push('/')"
+      >
+        Non, j'ai eu ma dose
+      </button>
+    </div>
 	</div>
 </template>
 

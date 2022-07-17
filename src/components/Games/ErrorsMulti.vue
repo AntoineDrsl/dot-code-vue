@@ -3,7 +3,7 @@
 		<!-- Content -->
 		<template #content>
 			<div class="w-full h-5/6 flex border-2 border-space-green rounded-xl px-6 py-4">
-				<div class="w-4/6 pr-10">
+				<div class="w-full pr-10">
 					<h3 class="geminis text-space-green text-xl">
 						Corrige le code
 					</h3>
@@ -22,7 +22,7 @@
 					</div>
 					<div
 						id="editor-1"
-						class="lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
+						class="h-2/6 lg:h-3/6 2xl:h-4/6 overflow-y-hidden"
 						@click="onIdeClick"
 					/>
 					<div class="w-full flex flex-col mt-2">
@@ -37,30 +37,6 @@
 							TESTER
 						</div>
 					</div>
-				</div>
-				<div class="w-2/6">
-					<h3 class="geminis text-space-green text-xl">
-						Ton adversaire: Player 2
-					</h3>
-					<div class="mb-2 text-sm">
-						<span>Progression de ton adversaire: {{ opponent_exercise_number }}/10</span>
-						<div class="progress mt-1">
-							<div
-								class="bg-space-green"
-								role="progressbar"
-								:style="'width: ' + (opponent_exercise_number * 10) + '%'"
-							/>
-						</div>
-					</div>
-					<div 
-						id="editor-2"
-						class="h-2/6 overflow-y-hidden mt-4 w-full"
-					/>
-					<img
-						src="@/assets/images/games/astronaut.png"
-						alt="Astronaut"
-						class="w-full mt-10"
-					>
 				</div>
 			</div>
 		</template>
@@ -155,30 +131,27 @@
     import axios from 'axios'
 
     export default {
-        name: 'MultiErrors',
+        name: 'ErrorsMulti',
         components: {
             GameLayout,
             SpaceButton
+        },
+        props: {
+            user: Object,
+            room: Object,
         },
         data() {
             return {
                 language: 'javascript',
                 userEditor: null,
-                opponentEditor: null,
                 output: null,
                 loading: false,
 
-                user: null,
-                room: null,
-
                 exercise_number: 0,
-                opponent_exercise_number: 0,
 
                 /** Variables pour le partage des IDEs */
                 userRemoteCursorManager: null,
-                opponentRemoteCursorManager: null,
                 userEditorContentManager: null,
-                opponentEditorContentManager: null,
             }
         },
         watch: {
@@ -199,7 +172,7 @@
 
                 if(newVal <= 9) {
                     // Next exercise
-                    this.userEditor.getModel().setValue(exercices[newVal].code);
+                    this.userEditor?.getModel().setValue(exercices[newVal].code);
                     this.output = null;
                     this.loading = false;
                 } else {
@@ -207,36 +180,14 @@
                     await router.push({path: `/room-win`});
                 }
             },
-            async opponent_exercise_number(newVal) {
-                if(newVal <= 9) {
-                    // Next exercise for opponent
-                    this.opponentEditor.getModel().setValue(exercices[newVal].code);
-                } else {
-                    // Loose page
-                    await router.push({ path: `/room-lose` });
-                }
-            }
         },
         async mounted() {
             document.title = 'Corrige le code | DotCode'
 
-            // Get user
-            const userId = parseInt(localStorage.getItem('user'));
-            this.user = await axios.get(process.env.VUE_APP_API_URL + 'user/' + userId)
-                .then(res => res.data)
-                .catch(() => this.$router.push({ name: 'room.connection' }));
-
-            // Get room
-            this.room = await axios.get(`${process.env.VUE_APP_API_URL}room/pin/${this.$route.params.pin}`)
-                .then(res => res.data)
-                .catch(() => this.$router.push({ name: 'room.connection' }));
-
             const userTeam = this.room.teams.find(team => team.id === this.user.team.id);
-            const opponentTeam = this.room.teams.find(team => team.id !== this.user.team.id);
 
             // Initialization of the team number, in case of reloading
             this.exercise_number = userTeam.points;
-            this.opponent_exercise_number = opponentTeam.points;
 
             // Init Monaco
             const monaco = await loader.init()
@@ -247,22 +198,10 @@
                 theme: 'vs-dark',
                 minimap: {enabled: false}
             });
-            this.opponentEditor = monaco.editor.create(document.getElementById("editor-2"), {
-                value: exercices[opponentTeam.points].code,
-                language: this.language,
-                theme: 'vs-dark',
-                lineNumbers: false,
-                minimap: {enabled: false}
-            });
 
             // Cursor management
             this.userRemoteCursorManager = new MonacoCollabExt.RemoteCursorManager({
                 editor: this.userEditor,
-                tooltips: true,
-                tooltipDuration: 4
-            });
-            this.opponentRemoteCursorManager = new MonacoCollabExt.RemoteCursorManager({
-                editor: this.opponentEditor,
                 tooltips: true,
                 tooltipDuration: 4
             });
@@ -282,19 +221,6 @@
                 newCursor.show();
                 // Add to user
                 this.room.users.find(u => u.id === user.id ).cursor = newCursor;
-            });
-
-            opponentTeam.users.forEach(user => {
-                // Add cursor
-                const newCursor = this.opponentRemoteCursorManager.addCursor(
-                    user.id.toString(),
-                    this.getRandomColor(),
-                    user.pseudo
-                );
-                newCursor.setPosition({column: 1, lineNumber: 1});
-                newCursor.show();
-                // Add to user
-                this.room.users.find(u => u.id === user.id).cursor = newCursor;
             });
 
             // Editor content managers
@@ -318,9 +244,6 @@
                     });
                 }
             });
-            this.opponentEditorContentManager = new MonacoCollabExt.EditorContentManager({
-                editor: this.opponentEditor,
-            });
 
             // IDE on key up
             this.userEditor.onKeyUp((e) => {
@@ -339,35 +262,21 @@
             });
         },
         methods: {
-            executeCode() {
+            async executeCode() {
                 if(!this.loading) {
-                    $.ajax({
-                        url: process.env.VUE_APP_API_URL + 'editor',
-                        method: 'POST',
-                        data: {
-                            language: this.language,
-                            code: this.userEditor.getModel().getValue(),
-                            expectedResult: exercices[this.exercise_number].expectedResult,
-                            expectedCode: exercices[this.exercise_number].expectedCode
-                        },
-                        success: (res) => {
-                            if(res.error) {
-                                // Display error
-                                $('.output-result').css('color', 'red');
-                                this.output = res.error;
-                            } else {
-                                // Display result
-                                $('.output-result').css('color', '#fff');
-                                this.output = res.output;
-                                this.loading = true;
+                    const res = await axios.post(process.env.VUE_APP_API_URL + 'editor', {
+                        language: this.language,
+                        code: this.userEditor.getModel().getValue(),
+                        expectedResult: exercices[this.exercise_number].expectedResult,
+                        expectedCode: exercices[this.exercise_number].expectedCode
+                    }).then(res => res.data);
 
-                                // Next exercice
-                                setTimeout(() => {
-                                    this.exercise_number++;
-                                }, 1500);
-                            }
-                        }
-                    });
+                    // Emit result
+                    await this.$socket.client.emit('newResult', {
+                        pin: this.$route.params.pin,
+                        output: res.output,
+                        error: res.error,
+                    })
                 }
             },
 
@@ -391,23 +300,13 @@
             },
 
             newTextInsert(params) {
-                if (this.user.team.id === params.team_id) {
-                    this.userEditorContentManager.insert(params.index, params.text);
-                    this.userEditorContentManager.dispose();
-                } else {
-                    this.opponentEditorContentManager.insert(params.index, params.text);
-                    this.opponentEditorContentManager.dispose();
-                }
+                this.userEditorContentManager.insert(params.index, params.text);
+                this.userEditorContentManager.dispose();
             },
 
             newTextDelete(params) {
-                if (this.user.team.id === params.team_id) {
-                    this.userEditorContentManager.delete(params.index, params.length);
-                    this.userEditorContentManager.dispose();
-                } else {
-                    this.opponentEditorContentManager.delete(params.index, params.length);
-                    this.opponentEditorContentManager.dispose();
-                }
+                this.userEditorContentManager.delete(params.index, params.length);
+                this.userEditorContentManager.dispose();
             },
 
             onTab(params) {
@@ -418,8 +317,22 @@
                 }
             },
 
-            opponentSuccess() {
-                this.opponent_exercise_number++;
+            newResult(params) {
+                if(params.error) {
+                    // Display error
+                    $('.output-result').css('color', 'red');
+                    this.output = params.error;
+                } else {
+                    // Display result
+                    $('.output-result').css('color', '#fff');
+                    this.output = params.output;
+                    this.loading = true;
+
+                    // Next exercice
+                    setTimeout(() => {
+                        this.exercise_number++;
+                    }, 1500);
+                }
             }
         }
     }

@@ -105,23 +105,10 @@
 					</div>
 				</div>
 
-				<div
-					v-if="room"
-					class="mt-4 lg:mt-14"
-				>
-					Joueurs dans la room:
-					<span
-						v-for="user in room.users"
-						:key="user.id"
-					>
-						{{ (user.pseudo ? user.pseudo : 'Guest ' + user.id) + ' ' }}
-					</span>
-				</div>
-
-				<div class="w-full flex flex-col items-center lg:mb-10">
+				<div class="w-full flex flex-col items-center lg:mb-10 mt-5">
 					<button
 						class="text-center bg-white hover:bg-space-dark-blue text-space-dark-blue hover:text-white border-none cursor-pointer font-bold px-2 py-1.5 text-2xl rounded-full w-1/3 shadow-space transition duration-100"
-						@click="launchGame()"
+						@click="validateTeams()"
 					>
 						Démarrer la partie !
 					</button>
@@ -143,7 +130,7 @@
 </template>
 
 <script>
-  import router from "../../router";
+  import router from '../../router'
   import axios from 'axios'
 
   export default {
@@ -156,6 +143,7 @@
       };
     },
     async mounted() {
+			// Get user
       const userId = localStorage.getItem('user');
       this.user = await axios.get(`${process.env.VUE_APP_API_URL}user/${userId}`).then(res => res.data);
 
@@ -190,14 +178,14 @@
         return true;
       },
 
-      launchGame() {
+      validateTeams() {
         if(!this.room.teams[0].users?.length || !this.room.teams[1].users?.length) {
           this.err = "Une équipe est vide :("
           return;
         }
 
         this.$socket.client.emit(
-          "launchGame",
+          "validateTeams",
           { pin: this.$route.params.pin },
           (res) => {
             if (res.error) {
@@ -221,7 +209,7 @@
         this.room = room
       },
       // Game is launching
-      launchGame() {
+      validateTeams() {
         router.push({ path: `/room/${this.$route.params.pin}` });
       },
     },
