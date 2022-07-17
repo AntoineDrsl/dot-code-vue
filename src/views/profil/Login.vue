@@ -10,14 +10,15 @@
 			>
 		</div>
 		<div class="w-full mt-5 flex justify-center relative z-20">
-			<SpaceButton
-				class="w-2/6"
-				text="Se créer un compte"
-				link="register"
-			/>
+            <SpaceButton
+                class="w-2/6"
+                text="Retour à l'accueil"
+                link="home"
+            />
 			<SpaceButton
 				class="w-2/6 ml-14"
-				text="Créer une partie privé"
+				text="Se créer un compte"
+				link="register"
 			/>
 		</div>
 		<img
