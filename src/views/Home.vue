@@ -223,7 +223,7 @@
   };
 </script>
 
-<style scoped>
+<style>
   .bg-astronaute {
     background: url("~@/assets/images/welcome-on-board.png");
     z-index: -1;
