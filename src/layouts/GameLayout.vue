@@ -1,8 +1,7 @@
 <template>
 	<div>
 		<div class="h-screen flex">
-      <div class="h-full mx-8"
-           :class="{'test': opened}">
+      <div class="h-full w-full mx-8">
         <Topbar @open-sidebar="openSideBar"/>
         <slot name="content" />
       </div>
@@ -58,19 +57,6 @@
     }
     100% {
       transform: translateX(0);
-    }
-  }
-
-  .test {
-    animation: test-anim .5s forwards;
-  }
-
-  @keyframes test-anim {
-    0% {
-      width: 100%;
-    }
-    100% {
-      width: 80%;
     }
   }
 </style>

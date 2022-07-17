@@ -15,7 +15,7 @@ import PrivateMode from '../views/PrivateParty/Mode'
 import test from "../middlewares/test"
 import Register from '../views/Profile/Register.vue'
 import Login from '../views/Profile/Login.vue'
-import About from "../views/About";
+import About from "../views/About"
 import Settings from '../views/Room/Settings.vue'
 
 Vue.use(VueRouter)

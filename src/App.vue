@@ -1,7 +1,6 @@
 <template>
 	<div id="app">
-
-    <Particles />
+        <Particles />
 		<router-view />
 	</div>
 </template>
