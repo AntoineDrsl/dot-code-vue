@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import Menu from "../../../views/menu/Menu";
+    import Menu from "../../../views/Menu2/Menu";
     export default {
         name: 'Navbar',
         components: {Menu},
