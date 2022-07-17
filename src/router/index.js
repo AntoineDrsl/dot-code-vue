@@ -9,9 +9,9 @@ import Team from '../views/Room/Team'
 import Test from '../views/Test'
 import RoomWin from "../views/Room/RoomWin"
 import RoomLose from "../views/Room/RoomLose"
-import PrivatePartyContainer from '../views/PrivateParty2/PrivatePartyContainer'
-import PrivateCreation from '../views/PrivateParty2/Creation'
-import PrivateMode from '../views/PrivateParty2/Mode'
+import PrivatePartyContainer from '../views/PrivateParty/PrivatePartyContainer'
+import PrivateCreation from '../views/PrivateParty/Creation'
+import PrivateMode from '../views/PrivateParty/Mode'
 import test from "../middlewares/test"
 import Register from '../views/Profile/Register.vue'
 import Login from '../views/Profile/Login.vue'
