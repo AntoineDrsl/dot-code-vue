@@ -206,7 +206,7 @@
         }).then(res => res.data);
 
         // Join room
-        this.$socket.client.emit('joinRoom', {
+        await this.$socket.client.emit('joinRoom', {
           pin: room.pin
         });
 

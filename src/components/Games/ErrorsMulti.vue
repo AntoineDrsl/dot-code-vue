@@ -262,35 +262,21 @@
             });
         },
         methods: {
-            executeCode() {
+            async executeCode() {
                 if(!this.loading) {
-                    $.ajax({
-                        url: process.env.VUE_APP_API_URL + 'editor',
-                        method: 'POST',
-                        data: {
-                            language: this.language,
-                            code: this.userEditor.getModel().getValue(),
-                            expectedResult: exercices[this.exercise_number].expectedResult,
-                            expectedCode: exercices[this.exercise_number].expectedCode
-                        },
-                        success: (res) => {
-                            if(res.error) {
-                                // Display error
-                                $('.output-result').css('color', 'red');
-                                this.output = res.error;
-                            } else {
-                                // Display result
-                                $('.output-result').css('color', '#fff');
-                                this.output = res.output;
-                                this.loading = true;
+                    const res = await axios.post(process.env.VUE_APP_API_URL + 'editor', {
+                        language: this.language,
+                        code: this.userEditor.getModel().getValue(),
+                        expectedResult: exercices[this.exercise_number].expectedResult,
+                        expectedCode: exercices[this.exercise_number].expectedCode
+                    }).then(res => res.data);
 
-                                // Next exercice
-                                setTimeout(() => {
-                                    this.exercise_number++;
-                                }, 1500);
-                            }
-                        }
-                    });
+                    // Emit result
+                    await this.$socket.client.emit('newResult', {
+                        pin: this.$route.params.pin,
+                        output: res.output,
+                        error: res.error,
+                    })
                 }
             },
 
@@ -314,23 +300,13 @@
             },
 
             newTextInsert(params) {
-                if (this.user.team.id === params.team_id) {
-                    this.userEditorContentManager.insert(params.index, params.text);
-                    this.userEditorContentManager.dispose();
-                } else {
-                    this.opponentEditorContentManager.insert(params.index, params.text);
-                    this.opponentEditorContentManager.dispose();
-                }
+                this.userEditorContentManager.insert(params.index, params.text);
+                this.userEditorContentManager.dispose();
             },
 
             newTextDelete(params) {
-                if (this.user.team.id === params.team_id) {
-                    this.userEditorContentManager.delete(params.index, params.length);
-                    this.userEditorContentManager.dispose();
-                } else {
-                    this.opponentEditorContentManager.delete(params.index, params.length);
-                    this.opponentEditorContentManager.dispose();
-                }
+                this.userEditorContentManager.delete(params.index, params.length);
+                this.userEditorContentManager.dispose();
             },
 
             onTab(params) {
@@ -340,6 +316,24 @@
                     this.opponentEditor.setValue(params.text);
                 }
             },
+
+            newResult(params) {
+                if(params.error) {
+                    // Display error
+                    $('.output-result').css('color', 'red');
+                    this.output = params.error;
+                } else {
+                    // Display result
+                    $('.output-result').css('color', '#fff');
+                    this.output = params.output;
+                    this.loading = true;
+
+                    // Next exercice
+                    setTimeout(() => {
+                        this.exercise_number++;
+                    }, 1500);
+                }
+            }
         }
     }
 </script>
