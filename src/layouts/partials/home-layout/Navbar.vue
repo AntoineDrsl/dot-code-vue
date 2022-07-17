@@ -1,7 +1,7 @@
 <template>
 	<div class="h-24 flex justify-around items-center fixed top-0 left-0 w-screen z-50 bg-space-dark-blue">
-        <transition name="menu">
-            <Menu v-if="showMenu" @close-menu="showMenu = !showMenu"/>
+        <transition>
+            <Menu v-show="showMenu" @close-menu="showMenu = !showMenu"/>
         </transition>
 
 		<img
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import Menu from "../../../views/Menu/Menu";
+    import Menu from "../../../components/Menu/Menu";
     export default {
         name: 'Navbar',
         components: {Menu},
@@ -35,17 +35,20 @@
 </script>
 
 <style>
-.menu-enter-active,
-.menu-leave-active {
-    transition: all 0.5s ease-in-out;
+.v-enter-active {
+    animation: menu-animation 0.75s ease-in-out;
 }
 
-.menu-enter-from,
-.menu-leave-to {
-    transform: translateY(-100%);
+.v-leave-active {
+    animation: menu-animation 0.75s ease-in-out reverse;
 }
 
-.menu-enter-to {
-    transform: translateY(0);
+@keyframes menu-animation {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 </style>
