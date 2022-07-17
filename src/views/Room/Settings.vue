@@ -53,6 +53,7 @@
 						class="flex flex-col justify-center items-center h-1/2 mx-1 mt-2 rounded-lg bg-space-dark-blue text-lg" 
 						:class="{ 
 							'cursor-pointer': room.owner && room.owner.id == user.id,
+							'opacity-50': (!room.owner || room.owner.id != user.id) && room.mode != 'vs',
 							'border-4 border-space-green text-space-green': room.mode == 'vs',
 						}"
 						style="width: 31%;"
@@ -65,6 +66,7 @@
 						class="flex flex-col justify-center items-center h-1/2 mx-1 mt-2 rounded-lg bg-space-dark-blue text-lg" 
 						:class="{ 
 							'cursor-pointer': room.owner && room.owner.id == user.id,
+							'opacity-50': (!room.owner || room.owner.id != user.id) && room.mode != 'multi',
 							'border-4 border-space-green text-space-green': room.mode == 'multi', 
 						}"
 						style="width: 31%;"
@@ -76,6 +78,7 @@
 				</div>
 				<SpaceButton
 					text="Démarrer la partie"
+					:disabled="!room.owner || room.owner.id != user.id"
 					@click.native="launchGame"
 				/>
 			</div>
