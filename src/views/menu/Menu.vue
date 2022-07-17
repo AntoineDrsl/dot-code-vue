@@ -46,8 +46,8 @@
             </div>
 
             <!-- IMAGES BACKGROUND -->
-            <img alt="metal planet" width="500" class="planet-img" src="@/assets/images/planet-metal.png">
-            <img alt="diamond" width="200" class="diamond-img" src="@/assets/images/diamond-2.png">
+            <img alt="metal planet" width="30%" class="planet-img" src="@/assets/images/planet-metal.png">
+            <img alt="diamond" width="200" class="diamond-img-menu" src="@/assets/images/diamond-2.png">
         </div>
 </template>
 <script>
@@ -110,7 +110,7 @@ a {
     left: 30px;
 }
 
-.diamond-img {
+.diamond-img-menu {
     position: absolute;
     z-index: 1;
     top: 200px;
