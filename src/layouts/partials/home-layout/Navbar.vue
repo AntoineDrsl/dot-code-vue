@@ -11,13 +11,18 @@
             @click="showMenu = !showMenu"
 		>
 		<span class="geminis text-4xl">SpaceCode</span>
-        <router-link :to="{ name: 'login' }">
+        <div class="flex items-center space-x-3">
             <img
-                class="h-2/5 mr-20"
+                class="h-2/5"
                 src="@/assets/images/btn-astro.svg"
                 alt="Astro button"
             >
-        </router-link>
+
+            <span v-if="username" class="text-space-green font-black ">{{username}}</span>
+            <router-link v-else :to="{ name: 'login' }" class="text-space-green font-black hover:text-space-darker-green ease-out duration-300">
+                SE CONNECTER
+            </router-link>
+        </div>
 	</div>
 </template>
 
@@ -28,13 +33,21 @@
         components: {Menu},
         data() {
           return {
-              showMenu: false
+              showMenu: false,
+              username: ''
           }
+        },
+        mounted() {
+            this.username = sessionStorage.getItem('username');
         }
     }
 </script>
 
-<style>
+<style scoped>
+a {
+    text-decoration: none;
+}
+
 .v-enter-active {
     animation: menu-animation 0.75s ease-in-out;
 }

@@ -9,7 +9,7 @@
 				v-model="email"
 				type="text"
 				class="w-full mt-4 py-2 px-4 rounded-full border-none bg-space-dark-blue text-white"
-				placeholder="Username"
+				placeholder="Email"
 			>
 			<input
 				id="id-input"
@@ -50,8 +50,9 @@ export default {
           password: this.password
         }).then((response) => {
           if ('id' in response.data) {
-            localStorage.setItem('token', response.data.access_token)
-            localStorage.setItem('user', response.data.id)
+            localStorage.setItem('token', response.data.access_token);
+            localStorage.setItem('user', response.data.id);
+            sessionStorage.setItem('username', response.data.username);
             return this.$router.push({name: 'home'});
           }
         })
