@@ -33,15 +33,6 @@
 				src="@/assets/images/diamond.png"
 				alt=""
 			>
-			<!-- <p class="text-white absolute -bottom-10 left-0">
-				Vous souhaitez créer votre propre room ? 
-				<router-link
-					:to="{ name: 'room.pseudo' }"
-					class="text-white no-underline"
-				>
-					C'est ici !
-				</router-link>
-			</p> -->
 		</div>
 	</div>
 </template>
@@ -52,8 +43,8 @@
 
   export default {
     name: "Connection",
-    components: { 
-      SpaceButton 
+    components: {
+      SpaceButton
     },
     data() {
       return {
@@ -64,7 +55,7 @@
     methods: {
       async roomConnection() {
         // Get room
-        const room = await axios.get(`${process.env.VUE_APP_API_URL}room/pin/${this.pin}`)
+        const room = await axios.get(`${process.env.VUE_APP_API_URL}room/pin/${this.pin.toUpperCase()}`)
           .then((res) => res.data)
           .catch(() => {
             this.error = 'Cette room est introuvable';
