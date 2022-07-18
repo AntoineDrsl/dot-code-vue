@@ -46,7 +46,7 @@ export default {
         const userId = localStorage.getItem('user');
 
         axios.post(process.env.VUE_APP_API_URL + `auth/login?id=${userId}`, {
-          email: this.email,
+          email: this.email.toLocaleLowerCase(),
           password: this.password
         }).then((response) => {
           if ('id' in response.data) {
