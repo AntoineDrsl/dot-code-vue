@@ -45,6 +45,9 @@
 </script>
 
 <style scoped>
+  .test {
+      max-width: 100vw;
+  }
   .sidebar-enter-active {
     animation: sidebar-anim .5s;
   }
