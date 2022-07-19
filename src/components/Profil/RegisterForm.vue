@@ -114,7 +114,7 @@ export default {
     methods: {
         onRegister() {
           axios.post(process.env.VUE_APP_API_URL + `auth/register?id=${this.id}`, {
-            email: this.email,
+            email: this.email.toLowerCase(),
             pseudo: this.name,
             password: this.password,
             socket_id: sessionStorage.getItem('socket_id')

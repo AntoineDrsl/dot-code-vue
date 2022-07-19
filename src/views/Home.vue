@@ -29,7 +29,7 @@
 						<h2 class="geminis">
 							Third Stone from the Sun
 						</h2>
-						<p class="w-3/5 lg:w-full">
+						<p class="w-3/5 lg:w-full line-height-p">
 							<strong>SPACECODE, c'est quoi ?</strong> <br>
 							Relevez le défi sur les différents modes de jeux que vous propose SPACECODE. Chaque défi est conçu par la
 							communauté pour vous aider à renforcer différentes compétences de développement. Maîtrisez le langage de
@@ -63,7 +63,7 @@
 						<h2 class="geminis">
 							Interstellar Supernova
 						</h2>
-						<p class="w-3/5 lg:w-full ml-56 lg:ml-0">
+						<p class="w-3/5 lg:w-full ml-56 lg:ml-0 line-height-p">
 							<strong> Comment ça fonctionne ? </strong> <br>
 
 							Discutez du défi, des meilleures pratiques et des techniques innovantes avec la communauté. Laissez-vous
@@ -93,7 +93,7 @@
 				</div>
 
 				<div class="relative h-80 flex items-center py-56 lg:py-24">
-					<div class="w-3/5">
+					<div class="w-3/5 line-height-p">
 						<h2 class="geminis">
 							FIGHT LIKE A Rocket Man !
 						</h2>
@@ -227,6 +227,10 @@
   .bg-astronaute {
     background: url("~@/assets/images/welcome-on-board.png");
     z-index: -1;
+  }
+
+  .line-height-p {
+      line-height: 1.8;
   }
 
   .planet-red-img {

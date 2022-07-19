@@ -146,6 +146,7 @@
                 userEditor: null,
                 output: null,
                 loading: false,
+                timeout: null,
 
                 exercise_number: 0,
 
@@ -295,8 +296,14 @@
 
         sockets: {
             userCursorChange(params) {
+                clearTimeout(this.timeout);
+
                 this.room.users.find(user => user.id === params.user.id).cursor.setPosition(params.position);
                 this.room.users.find(user => user.id === params.user.id).cursor.show();
+
+                this.timeout = setTimeout(() => {
+                    this.room.users.find(user => user.id === params.user.id).cursor.hide();
+                }, 4000);
             },
 
             newTextInsert(params) {

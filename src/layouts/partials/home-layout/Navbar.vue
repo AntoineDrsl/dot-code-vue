@@ -1,7 +1,7 @@
 <template>
 	<div class="h-24 flex justify-around items-center fixed top-0 left-0 w-screen z-50 bg-space-dark-blue">
-        <transition name="menu">
-            <Menu v-if="showMenu" @close-menu="showMenu = !showMenu"/>
+        <transition>
+            <Menu v-show="showMenu" @close-menu="showMenu = !showMenu"/>
         </transition>
 
 		<img
@@ -11,41 +11,57 @@
             @click="showMenu = !showMenu"
 		>
 		<span class="geminis text-4xl">SpaceCode</span>
-        <router-link :to="{ name: 'login' }">
+        <div class="flex items-center space-x-3">
             <img
-                class="h-2/5 mr-20"
+                class="h-2/5"
                 src="@/assets/images/btn-astro.svg"
                 alt="Astro button"
             >
-        </router-link>
+
+            <span v-if="username" class="text-space-green font-black ">{{username}}</span>
+            <router-link v-else :to="{ name: 'login' }" class="text-space-green font-black hover:text-space-darker-green ease-out duration-300">
+                SE CONNECTER
+            </router-link>
+        </div>
 	</div>
 </template>
 
 <script>
-    import Menu from "../../../views/Menu/Menu";
+    import Menu from "../../../components/Menu/Menu";
     export default {
         name: 'Navbar',
         components: {Menu},
         data() {
           return {
-              showMenu: false
+              showMenu: false,
+              username: ''
           }
+        },
+        mounted() {
+            this.username = sessionStorage.getItem('username');
         }
     }
 </script>
 
-<style>
-.menu-enter-active,
-.menu-leave-active {
-    transition: all 0.5s ease-in-out;
+<style scoped>
+a {
+    text-decoration: none;
 }
 
-.menu-enter-from,
-.menu-leave-to {
-    transform: translateY(-100%);
+.v-enter-active {
+    animation: menu-animation 0.75s ease-in-out;
 }
 
-.menu-enter-to {
-    transform: translateY(0);
+.v-leave-active {
+    animation: menu-animation 0.75s ease-in-out reverse;
+}
+
+@keyframes menu-animation {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 </style>
