@@ -1,7 +1,7 @@
 <template>
 	<div class="body">
 		<Navbar />
-		<div class="home-container">
+		<div class="px-4 sm:px-10 md:px-16">
 			<slot name="content" />
 		</div>
 		<Footer />
@@ -20,9 +20,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .home-container {
-        padding: 0 100px;
-    }
-</style>

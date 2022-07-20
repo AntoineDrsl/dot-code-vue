@@ -1,59 +1,61 @@
 <template>
 	<HomeLayout>
 		<template #content>
-			<div class="relative h-96 lg:h-screen mb-10 top-28 xl:top-14 2xl:top-96">
-				<div class="w-2/3 lg:w-1/2 2xl:w-3/5 mt-24 float-right text-center ">
-					<h1 class="lg:text-8xl 2xl:text-9xl geminis text-loose text-shadow mb-14">
-						Welcome<br>on board !
-					</h1>
-					<div class="flex space-x-2">
-						<div class="w-full lg:w-1/2">
-							<SpaceButton
-								text="Jouer en ligne !"
-								link="room.connection"
-							/>
-						</div>
-						<div class="w-full lg:w-1/2">
-							<SpaceButton
-								text="Créer une partie privée"
-								@click.native="createRoom"
-							/>
+			<div class="relative h-screen">
+				<div class="w-2/3 md:w-7/12 xl:w-1/2 2xl:w-3/5 h-full float-right flex items-center z-10">
+					<div class="w-full mb-48 float-right text-center">
+						<h1 class="geminis text-7xl lg:text-8xl 2xl:text-9xl text-shadow mb-14">
+							Welcome<br>on board !
+						</h1>
+						<div class="flex space-x-2">
+							<div class="w-1/2">
+								<SpaceButton
+									text="Jouer en ligne !"
+									link="room.connection"
+								/>
+							</div>
+							<div class="w-1/2">
+								<SpaceButton
+									text="Créer une partie privée"
+									@click.native="createRoom"
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="top-14 h-5/6 w-5/6 bg-no-repeat bg-contain bg-astronaute" />
+				<div class="bg-astronaute mt-24 h-full bg-no-repeat bg-contain" />
 			</div>
-			<div class="space-y-24 mt-4">
-				<div class="relative h-80 flex items-center">
-					<div class="lg:w-3/5">
-						<h2 class="geminis">
+			<div class="px-16 space-y-56 mt-48">
+				<div class="h-80 flex items-center">
+					<div class="w-3/5 js-scroll slide-left">
+						<h2 class="geminis text-5xl mb-5">
 							Third Stone from the Sun
 						</h2>
-						<p class="w-3/5 lg:w-full">
-							<strong>SPACECODE, c'est quoi ?</strong> <br>
-							Relevez le défi sur les différents modes de jeux que vous propose SPACECODE. Chaque défi est conçu par la
-							communauté pour vous aider à renforcer différentes compétences de développement. Maîtrisez le langage de
-							votre choix et développez votre compréhension du code. Résolvez le défi avec votre style de développement
-							directement dans le navigateur et résolvez des exercices pour mesurer votre progression. SPACECODE vous
-							propose une approche nouvelle, créative et optimisée pour tirer le meilleur parti de votre pratique de la
-							programmation.
+						<h3 class="text-2xl font-bold mb-5">
+							SPACECODE, c'est quoi ?
+						</h3>
+						<p class="mb-5 font-light">
+							Relevez le défi sur les différents modes de jeux que vous propose SPACECODE. Chaque défi est conçu par la communauté pour vous aider à renforcer différentes compétences de développement. Maîtrisez le langage de votre choix et développez votre compréhension du code. 
+						</p>
+						<p class="font-light">
+							Résolvez le défi avec votre style de développement directement dans le navigateur et résolvez des exercices pour mesurer votre progression. SPACECODE vous propose une approche nouvelle, créative et optimisée pour tirer le meilleur parti de votre pratique de la programmation.
 						</p>
 					</div>
-					<div>
+					<div class="w-2/5 h-full relative">
 						<img
 							src="@/assets/images/planet-red.png"
 							alt="planet-red"
-							class="planet-red-img top-4 xl:top-0 -ml-14 lg:ml-28 absolute w-1/4 2xl:w-1/5 2xl:ml-96 2xl:-mt-8"
+							class="planet-red-img absolute w-9/12 -top-12 -right-6"
 						>
 						<img
-							src="@/assets/images/diamond.png"
+							src="@/assets/images/diamond-4.png"
 							alt="diamonds"
-							class="diamond-img absolute w-1/12 right-44 xl:right-80 xl:bottom-0"
+							class="diamond-img-2 absolute w-36 -top-28 right-72"
 						>
 						<img
-							src="@/assets/images/diamond-2.png"
+							src="@/assets/images/diamond-3.png"
 							alt="diamonds"
-							class="diamond-img-2 right-6 xl:right-11 absolute w-1/12 -top-10"
+							class="diamond-img absolute w-32 right-12 -bottom-20"
 						>
 					</div>
 				</div>
@@ -134,25 +136,23 @@
 				</div>
 			</div>
 
-
-
-			<div class="w-full bg-white h-60 rounded-full relative mt-60">
-				<div class="flex flex-column w-full items-center space-y-4">
-					<h3 class="geminis text-space-dark-blue mt-10 lg:text-3xl xl:text-5xl">
+			<div class="relative w-full h-46 sm:h-52 md:h-60 lg:h-72 bg-white rounded-full mt-48">
+				<div class="flex flex-col w-full h-full items-center">
+					<h3 class="geminis text-space-dark-blue mt-10 sm:mt-14 text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
 						Prêt à rejoindre l'aventure ?
 					</h3>
-					<h4 class="geminis text-space-dark-blue lg:text-xl xl:text-3xl">
+					<h4 class="geminis text-space-dark-blue mt-4 text-2xl md:text-3xl lg:text-4xl xl:text-4xl">
 						L'espace a besoin de toi !
 					</h4>
 					<SpaceButton
 						text="Se créer un compte"
-						class="w-1/3"
+						class="w-1/3 mt-6 md:mt-10 mb-3 xs:mb-0"
 					/>
 				</div>
 				<img
 					src="@/assets/images/splash.png"
 					alt="Splash"
-					class="absolute -top-6 xl:-top-10 -left-6 xl:-left-16 w-1/4 2xl:w-1/6"
+					class="absolute w-1/6 -left-6 -top-4"
 				>
 				<img
 					src="@/assets/images/diamond.png"
@@ -161,10 +161,11 @@
 				>
 			</div>
 
-			<div class="w-full grid justify-items-center">
+			<div class="w-full flex flex-col items-center justify-center -mt-1 sm:-mt-3">
 				<img
 					src="@/assets/images/dotcode.png"
 					alt="Dotcode"
+					class="z-10"
 				>
 				<div class="geminis">
 					Made with love by l'équipe 12
@@ -189,7 +190,8 @@
       SpaceButton,
     },
     mounted() {
-      this.disconnectFromAll();
+      this.disconnectFromAll()
+			this.appearOnScroll()
     },
     methods: {
       async getUser() {
@@ -218,7 +220,49 @@
         if(userId) {
           await axios.patch(process.env.VUE_APP_API_URL + 'user/' + userId + '/disconnect');
         }
-      }
+      },
+
+			appearOnScroll() {
+				// Scroll appear
+				const scrollElements = document.querySelectorAll(".js-scroll");
+
+				const elementInView = (el, dividend = 1) => {
+					const elementTop = el.getBoundingClientRect().top;
+					return (
+						elementTop <=
+						(window.innerHeight || document.documentElement.clientHeight) / dividend
+					);
+				};
+
+				const elementOutofView = (el) => {
+					const elementTop = el.getBoundingClientRect().top;
+					return (
+						elementTop > (window.innerHeight || document.documentElement.clientHeight)
+					);
+				};
+
+				const displayScrollElement = (element) => {
+					element.classList.add("scrolled");
+				};
+
+				const hideScrollElement = (element) => {
+					element.classList.remove("scrolled");
+				};
+
+				const handleScrollAnimation = () => {
+					scrollElements.forEach((el) => {
+						if (elementInView(el, 1.25)) {
+							displayScrollElement(el);
+						} else if (elementOutofView(el)) {
+							hideScrollElement(el)
+						}
+					})
+				}
+
+				window.addEventListener("scroll", () => { 
+					handleScrollAnimation();
+				});
+			},
     }
   };
 </script>
@@ -226,7 +270,6 @@
 <style>
   .bg-astronaute {
     background: url("~@/assets/images/welcome-on-board.png");
-    z-index: -1;
   }
 
   .planet-red-img {
@@ -332,4 +375,49 @@
       transform: translateY(0);
     }
   }
+
+	/* Scroll appear */
+  .js-scroll {
+		opacity: 0;
+		transition: opacity 500ms;
+	}
+
+	.js-scroll.scrolled {
+		opacity: 1;
+	}
+
+	.scrolled.slide-left {
+		animation: slide-in-left 1s ease-in-out both;
+	}
+
+	.scrolled.slide-right {
+  	animation: slide-in-right 1s ease-in-out both;
+	}
+
+	@keyframes slide-in-left {
+		0% {
+			-webkit-transform: translateX(-100px);
+			transform: translateX(-100px);
+			opacity: 0;
+		}
+		100% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes slide-in-right {
+		0% {
+			-webkit-transform: translateX(100px);
+			transform: translateX(100px);
+			opacity: 0;
+		}
+		100% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
 </style>
