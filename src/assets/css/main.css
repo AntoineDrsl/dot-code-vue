@@ -41,3 +41,10 @@ body {
 .border-green {
     border : solid #44f5ba
 }
+
+.error-box {
+    border: 1px solid rgba(168, 35, 35, 0.5);
+    background-color: rgba(219, 55, 55, 0.5);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+}

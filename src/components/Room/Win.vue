@@ -12,16 +12,16 @@
       <div>
         <p class="text-4xl font-bold w-1/2">Souhaites-tu repartir à l’assaut ?</p>
       </div>
-      <img class="absolute w-2/3 top-0 -right-44" src="@/assets/images/SpaceCode_AstroWin.png" />
+      <img class="absolute w-2/3 top-0 -right-44" src="@/assets/images/SpaceCode_AstroWin-min.png" />
     </div>
     <div class="flex p-1.5 ml-1 space-x-4">
-      <button 
+      <button
         class="w-full bg-space-green text-center rounded-full border-none relative text-white text-xl font-bold px-4 py-2 transition duration-150 hover:bg-space-darker-green shadow-space"
         @click="$router.push('/')"
       >
         Evidemment !
       </button>
-      <button 
+      <button
         class="w-full bg-space-red text-center rounded-full border-none relative text-white text-xl font-bold px-4 py-2 transition duration-150 hover:bg-space-darker-red shadow-space"
         @click="$router.push('/')"
       >

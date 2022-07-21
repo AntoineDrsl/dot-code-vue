@@ -55,7 +55,7 @@
 				class="w-4/5 mt-2 mb-4 text-center rounded-full font-bold text-white px-4 py-2"
 				:class="{
 					'cursor-pointer bg-space-dark-blue hover:bg-white hover:text-space-dark-blue' : hasValidForm,
-					'bg-gray-300 cursor-not-allowed' : ! hasValidForm
+					'bg-gray-300 cursor-not-allowed' : !hasValidForm
 				}"
 				@click="onRegister"
 			>
@@ -64,12 +64,9 @@
 		</div>
 		<p class="text-xs mt-10 text-center">
 			Vous avez déjà un compte ?
-			<a
-				class="font-bold no-underline cursor-pointer"
-				href="/login"
-			>
-				Connexion
-			</a>
+            <router-link :to="{name: 'login'}" class="font-bold no-underline cursor-pointer">
+                Se connecter
+            </router-link>
 		</p>
 	</div>
 </template>
